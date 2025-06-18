@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login - Intentionality</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        />
+        <style>
+            body {
+                background: #18344a;
+            }
+            .google-btn {
+                background: #fff;
+                color: #444;
+                border: 1px solid #e0e0e0;
+                font-weight: 600;
+                transition: box-shadow 0.2s, border-color 0.2s;
+            }
+            .google-btn:hover {
+                box-shadow: 0 2px 8px rgba(66, 133, 244, 0.15);
+                border-color: #4285f4;
+                color: #4285f4;
+            }
+            .google-icon {
+                color: #4285f4;
+            }
+        </style>
+    </head>
+    <body class="min-h-screen flex items-center justify-center">
+        <div
+            class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-sm flex flex-col items-center"
+        >
+            <h1 class="text-2xl font-bold text-deepblue mb-2">
+                Sign in to Intentionality
+            </h1>
+            <p class="text-gray-600 mb-6 text-center text-base">
+                Sign in with Google to sync your activity and unlock all
+                features.
+            </p>
+            <button
+                id="loginWithGoogleButton"
+                class="google-btn w-full flex items-center justify-center gap-3 py-2.5 px-4 rounded-lg text-base mb-4"
+            >
+                <i class="fab fa-google google-icon text-lg"></i>
+                <span>Sign in with Google</span>
+            </button>
+            <a
+                href="index.html"
+                class="google-btn w-full flex items-center justify-center gap-3 py-2.5 px-4 rounded-lg text-base mb-4"
+            >
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+            <div
+                id="loginStatus"
+                class="text-medblue mt-5 text-center text-sm"
+            ></div>
+        </div>
+        <script>
+            const firebaseConfig = {
+                apiKey: "AIzaSyCepAVjbZsx0z-M0sTvgp48AAt4bYBSq-U",
+                authDomain: "intentionality-1ce65.firebaseapp.com",
+                projectId: "intentionality-1ce65",
+                storageBucket: "intentionality-1ce65.firebasestorage.app",
+                messagingSenderId: "938266027514",
+                appId: "1:938266027514:web:747ac62f30207ef05d3043",
+                measurementId: "G-1891HVELCR",
+            };
+            if (!firebase.apps.length) {
+                firebase.initializeApp(firebaseConfig);
+            }
+            document.getElementById("loginWithGoogleButton").onclick =
+                function () {
+                    const provider = new firebase.auth.GoogleAuthProvider();
+                    firebase.auth().signInWithRedirect(provider);
+                };
+            firebase
+                .auth()
+                .getRedirectResult()
+                .then((result) => {
+                    if (result.user) {
+                        document.getElementById("loginStatus").textContent =
+                            "You are now logged in! You can return to the extension.";
+                    }
+                })
+                .catch((error) => {
+                    document.getElementById("loginStatus").textContent =
+                        "Login failed: " + error.message;
+                });
+        </script>
+    </body>
+</html>

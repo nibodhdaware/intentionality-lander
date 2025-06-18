@@ -8,8 +8,6 @@
         <link rel="icon" type="image/png" sizes="48x48" href="icons/icon48.png">
         <link rel="icon" type="image/png" sizes="128x128" href="icons/icon128.png">
         <script src="https://cdn.tailwindcss.com"></script>
-        <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
         <script>
             tailwind.config = {
                 theme: {
@@ -134,17 +132,6 @@
         </style>
     </head>
     <body class="bg-deepblue text-white">
-        <!-- Login Section -->
-        <section class="flex flex-col items-center justify-center min-h-screen" id="loginSection">
-            <div class="bg-white p-10 rounded-lg shadow-xl max-w-md w-full flex flex-col items-center">
-                <h1 class="text-3xl font-bold text-deepblue mb-6">Sign in to Intentionality</h1>
-                <button id="loginWithGoogleButton" class="bg-lightblue text-white px-8 py-3 rounded-lg text-lg hover:bg-medblue transition-colors mb-4">
-                    <i class="fab fa-google mr-2"></i>Login with Google
-                </button>
-                <div id="loginStatus" class="text-deepblue mt-2"></div>
-            </div>
-        </section>
-
         <!-- Hero Section -->
         <header class="bg-gradient-to-b from-deepblue-start to-deepblue-end shadow-sm">
             <nav class="container mx-auto px-6 py-4">
@@ -152,12 +139,20 @@
                     <div class="text-2xl font-bold text-lightblue fade-in">
                         Intentionality
                     </div>
-                    <a
-                        href="https://chrome.google.com/webstore"
-                        class="bg-lightblue text-white px-6 py-2 rounded-lg hover:bg-medblue transition-colors hover-lift"
-                    >
-                        Add to Chrome
-                    </a>
+                    <div class="flex items-center space-x-4">
+                        <a
+                            href="https://chrome.google.com/webstore"
+                            class="bg-lightblue text-white px-6 py-2 rounded-lg hover:bg-medblue transition-colors"
+                        >
+                            Add to Chrome
+                        </a>
+                        <a
+                            href="login.html"
+                            class="bg-white text-lightblue border border-lightblue px-6 py-2 rounded-lg hover:bg-lightblue hover:text-white transition-colors"
+                        >
+                            Login
+                        </a>
+                    </div>
                 </div>
             </nav>
         </header>
@@ -388,30 +383,6 @@
                 .forEach((el) => {
                     observer.observe(el);
                 });
-
-            const firebaseConfig = {
-                apiKey: "AIzaSyCepAVjbZsx0z-M0sTvgp48AAt4bYBSq-U",
-                authDomain: "intentionality-1ce65.firebaseapp.com",
-                projectId: "intentionality-1ce65",
-                storageBucket: "intentionality-1ce65.firebasestorage.app",
-                messagingSenderId: "938266027514",
-                appId: "1:938266027514:web:747ac62f30207ef05d3043",
-                measurementId: "G-1891HVELCR"
-            };
-            if (!firebase.apps.length) {
-                firebase.initializeApp(firebaseConfig);
-            }
-            document.getElementById('loginWithGoogleButton').onclick = function() {
-                const provider = new firebase.auth.GoogleAuthProvider();
-                firebase.auth().signInWithRedirect(provider);
-            };
-            firebase.auth().getRedirectResult().then((result) => {
-                if (result.user) {
-                    document.getElementById('loginStatus').textContent = "You are now logged in! You can return to the extension.";
-                }
-            }).catch((error) => {
-                document.getElementById('loginStatus').textContent = "Login failed: " + error.message;
-            });
         </script>
     </body>
 </html>
