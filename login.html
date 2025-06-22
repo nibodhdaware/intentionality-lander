@@ -31,18 +31,6 @@
             .google-icon {
                 color: #4285f4;
             }
-            .debug-console {
-                background: #f8f9fa;
-                border: 1px solid #dee2e6;
-                border-radius: 8px;
-                padding: 12px;
-                margin-top: 20px;
-                max-height: 200px;
-                overflow-y: auto;
-                font-family: "Courier New", monospace;
-                font-size: 12px;
-                white-space: pre-wrap;
-            }
         </style>
     </head>
     <body class="min-h-screen flex items-center justify-center">
@@ -74,29 +62,11 @@
                 id="loginStatus"
                 class="text-medblue mt-5 text-center text-sm"
             ></div>
-
-            <!-- Debug console -->
-            <div class="w-full">
-                <h3 class="text-sm font-semibold text-gray-700 mb-2">
-                    Debug Console:
-                </h3>
-                <div id="debugConsole" class="debug-console"></div>
-                <button
-                    id="clearDebug"
-                    class="mt-2 px-3 py-1 bg-gray-500 text-white text-xs rounded hover:bg-gray-600"
-                >
-                    Clear Debug
-                </button>
-            </div>
         </div>
 
         <script>
             // Function to communicate with Chrome extension
             function sendToExtension(userInfo) {
-                debugLog(
-                    "📡 Attempting to communicate with Chrome extension...",
-                );
-
                 // Check if we're in a Chrome extension context
                 if (
                     typeof chrome !== "undefined" &&
@@ -116,11 +86,6 @@
                         },
                         function (response) {
                             if (chrome.runtime.lastError) {
-                                debugLog(
-                                    "⚠️ Extension communication error (specific ID):",
-                                    chrome.runtime.lastError.message,
-                                );
-
                                 // Method 2: Try sending to any listening extension
                                 try {
                                     chrome.runtime.sendMessage(
@@ -130,31 +95,12 @@
                                             timestamp: Date.now(),
                                         },
                                         function (response) {
-                                            if (chrome.runtime.lastError) {
-                                                debugLog(
-                                                    "⚠️ Extension communication error (broadcast):",
-                                                    chrome.runtime.lastError
-                                                        .message,
-                                                );
-                                            } else {
-                                                debugLog(
-                                                    "✅ Successfully sent user info to extension",
-                                                    response,
-                                                );
-                                            }
+                                            // Handle response if needed
                                         },
                                     );
                                 } catch (broadcastError) {
-                                    debugLog(
-                                        "❌ Broadcast communication failed:",
-                                        broadcastError,
-                                    );
+                                    // Handle broadcast error
                                 }
-                            } else {
-                                debugLog(
-                                    "✅ Successfully sent user info to extension (specific ID)",
-                                    response,
-                                );
                             }
                         },
                     );
@@ -169,17 +115,10 @@
                             },
                             "*",
                         );
-                        debugLog(
-                            "📤 Posted message to window for content script pickup",
-                        );
                     } catch (postMessageError) {
-                        debugLog("⚠️ PostMessage failed:", postMessageError);
+                        // Handle postMessage error
                     }
                 } else {
-                    debugLog(
-                        "⚠️ Chrome runtime not available - not in extension context",
-                    );
-
                     // Alternative: Use localStorage for extension to pick up
                     try {
                         localStorage.setItem(
@@ -189,9 +128,6 @@
                                 timestamp: Date.now(),
                             }),
                         );
-                        debugLog(
-                            "💾 Stored login info in localStorage for extension pickup",
-                        );
 
                         // Dispatch custom event
                         window.dispatchEvent(
@@ -199,26 +135,16 @@
                                 detail: userInfo,
                             }),
                         );
-                        debugLog("📡 Dispatched custom event for extension");
                     } catch (localStorageError) {
-                        debugLog(
-                            "❌ localStorage backup failed:",
-                            localStorageError,
-                        );
+                        // Handle localStorage error
                     }
                 }
             }
 
             // Function to get extension ID dynamically
             function getExtensionId() {
-                debugLog("🔍 Attempting to detect extension ID...");
-
                 // Check if extension injected its ID
                 if (window.INTENTIONALITY_EXTENSION_ID) {
-                    debugLog(
-                        "✅ Found extension ID from window:",
-                        window.INTENTIONALITY_EXTENSION_ID,
-                    );
                     return window.INTENTIONALITY_EXTENSION_ID;
                 }
 
@@ -227,38 +153,11 @@
                     "intentionality_extension_id",
                 );
                 if (storedExtensionId) {
-                    debugLog(
-                        "✅ Found extension ID from localStorage:",
-                        storedExtensionId,
-                    );
                     return storedExtensionId;
                 }
 
-                debugLog("⚠️ Extension ID not found - using placeholder");
                 return "YOUR_EXTENSION_ID_HERE";
             }
-            function debugLog(message, data = null) {
-                const timestamp = new Date().toLocaleTimeString();
-                const debugConsole = document.getElementById("debugConsole");
-                let logMessage = `[${timestamp}] ${message}`;
-
-                if (data) {
-                    logMessage += "\n" + JSON.stringify(data, null, 2);
-                }
-
-                debugConsole.textContent += logMessage + "\n\n";
-                debugConsole.scrollTop = debugConsole.scrollHeight;
-
-                // Also log to browser console
-                console.log(message, data);
-            }
-
-            // Clear debug function
-            document.getElementById("clearDebug").onclick = function () {
-                document.getElementById("debugConsole").textContent = "";
-            };
-
-            debugLog("🚀 Page loaded, initializing Firebase...");
 
             const firebaseConfig = {
                 apiKey: "AIzaSyCepAVjbZsx0z-M0sTvgp48AAt4bYBSq-U",
@@ -273,38 +172,20 @@
             try {
                 if (!firebase.apps.length) {
                     firebase.initializeApp(firebaseConfig);
-                    debugLog("✅ Firebase initialized successfully");
-                } else {
-                    debugLog("ℹ️ Firebase already initialized");
                 }
             } catch (error) {
-                debugLog("❌ Firebase initialization error", error);
+                // Handle Firebase initialization error
             }
 
             // Check current auth state
             firebase.auth().onAuthStateChanged((user) => {
                 if (user) {
-                    debugLog("👤 User is signed in", {
-                        uid: user.uid,
-                        email: user.email,
-                        displayName: user.displayName,
-                        photoURL: user.photoURL,
-                        emailVerified: user.emailVerified,
-                        isAnonymous: user.isAnonymous,
-                        metadata: {
-                            creationTime: user.metadata.creationTime,
-                            lastSignInTime: user.metadata.lastSignInTime,
-                        },
-                        providerData: user.providerData,
-                    });
-
                     document.getElementById(
                         "loginStatus",
                     ).textContent = `✅ Signed in as ${
                         user.displayName || user.email
                     }`;
                 } else {
-                    debugLog("👤 No user signed in");
                     document.getElementById("loginStatus").textContent =
                         "Not signed in";
                 }
@@ -313,10 +194,6 @@
             // Login button click handler
             document.getElementById("loginWithGoogleButton").onclick =
                 function () {
-                    debugLog(
-                        "🔄 Login button clicked, starting Google sign-in...",
-                    );
-
                     try {
                         const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -324,33 +201,18 @@
                         provider.addScope("profile");
                         provider.addScope("email");
 
-                        debugLog("🔄 Trying popup sign-in first...");
-
                         // Try popup first (better for localhost)
                         firebase
                             .auth()
                             .signInWithPopup(provider)
                             .then((result) => {
-                                debugLog("✅ Popup sign-in successful!", {
-                                    uid: result.user.uid,
-                                    email: result.user.email,
-                                    displayName: result.user.displayName,
-                                    photoURL: result.user.photoURL,
-                                    accessToken: result.credential
-                                        ? result.credential.accessToken
-                                        : null,
-                                    idToken: result.credential
-                                        ? result.credential.idToken
-                                        : null,
-                                });
-
                                 document.getElementById(
                                     "loginStatus",
                                 ).textContent = `✅ Login successful! Welcome ${
                                     result.user.displayName || result.user.email
                                 }`;
 
-                                // Store user info in sessionStorage for debugging
+                                // Store user info in sessionStorage
                                 try {
                                     const userInfo = {
                                         uid: result.user.uid,
@@ -369,37 +231,19 @@
                                         "userInfo",
                                         JSON.stringify(userInfo),
                                     );
-                                    debugLog(
-                                        "💾 User info stored in sessionStorage",
-                                        userInfo,
-                                    );
 
                                     // Communicate with Chrome extension
                                     sendToExtension(userInfo);
                                 } catch (storageError) {
-                                    debugLog(
-                                        "⚠️ Could not store user info in sessionStorage",
-                                        storageError,
-                                    );
+                                    // Handle storage error
                                 }
                             })
                             .catch((error) => {
-                                debugLog(
-                                    "❌ Popup sign-in failed, trying redirect...",
-                                    {
-                                        code: error.code,
-                                        message: error.message,
-                                    },
-                                );
-
                                 // If popup fails, fall back to redirect
                                 if (
                                     error.code === "auth/popup-blocked" ||
                                     error.code === "auth/popup-closed-by-user"
                                 ) {
-                                    debugLog(
-                                        "🔄 Falling back to redirect method...",
-                                    );
                                     firebase
                                         .auth()
                                         .signInWithRedirect(provider);
@@ -411,46 +255,24 @@
                                 }
                             });
                     } catch (error) {
-                        debugLog("❌ Error during sign-in initiation", error);
                         document.getElementById("loginStatus").textContent =
                             "Error: " + error.message;
                     }
                 };
 
             // Handle redirect result
-            debugLog("🔄 Checking for redirect result...");
-
             firebase
                 .auth()
                 .getRedirectResult()
                 .then((result) => {
-                    debugLog("📥 Redirect result received", {
-                        hasUser: !!result.user,
-                        hasCredential: !!result.credential,
-                        operationType: result.operationType,
-                    });
-
                     if (result.user) {
-                        debugLog("✅ Sign-in successful!", {
-                            uid: result.user.uid,
-                            email: result.user.email,
-                            displayName: result.user.displayName,
-                            photoURL: result.user.photoURL,
-                            accessToken: result.credential
-                                ? result.credential.accessToken
-                                : null,
-                            idToken: result.credential
-                                ? result.credential.idToken
-                                : null,
-                        });
-
                         document.getElementById(
                             "loginStatus",
                         ).textContent = `✅ Login successful! Welcome ${
                             result.user.displayName || result.user.email
                         }`;
 
-                        // Store user info in sessionStorage for debugging
+                        // Store user info in sessionStorage
                         try {
                             const userInfo = {
                                 uid: result.user.uid,
@@ -463,70 +285,15 @@
                                 "userInfo",
                                 JSON.stringify(userInfo),
                             );
-                            debugLog(
-                                "💾 User info stored in sessionStorage",
-                                userInfo,
-                            );
                         } catch (storageError) {
-                            debugLog(
-                                "⚠️ Could not store user info in sessionStorage",
-                                storageError,
-                            );
+                            // Handle storage error
                         }
-                    } else if (result.operationType) {
-                        debugLog(
-                            "ℹ️ Redirect occurred but no user found",
-                            result,
-                        );
-                    } else {
-                        debugLog("ℹ️ No redirect result (normal page load)");
                     }
                 })
                 .catch((error) => {
-                    debugLog("❌ Redirect result error", {
-                        code: error.code,
-                        message: error.message,
-                        email: error.email,
-                        credential: error.credential,
-                    });
-
                     document.getElementById("loginStatus").textContent =
                         "Login failed: " + error.message;
                 });
-
-            // Additional debugging - check if we're in popup/redirect mode
-            debugLog("🔍 Environment check", {
-                userAgent: navigator.userAgent,
-                isPopupSupported: firebase.auth().isSignInWithEmailLink
-                    ? "Supported"
-                    : "Not supported",
-                currentURL: window.location.href,
-                referrer: document.referrer,
-                sessionStorage: sessionStorage.getItem("userInfo")
-                    ? "Has stored user info"
-                    : "No stored user info",
-                protocol: window.location.protocol,
-                hostname: window.location.hostname,
-                port: window.location.port,
-            });
-
-            // Test Firebase connection
-            debugLog("🔗 Testing Firebase connection...");
-            firebase.auth().currentUser; // This should not throw an error if Firebase is properly connected
-
-            // Check for any stored user info from previous sessions
-            const storedUserInfo = sessionStorage.getItem("userInfo");
-            if (storedUserInfo) {
-                try {
-                    const userInfo = JSON.parse(storedUserInfo);
-                    debugLog(
-                        "📂 Found stored user info from previous session",
-                        userInfo,
-                    );
-                } catch (e) {
-                    debugLog("⚠️ Error parsing stored user info", e);
-                }
-            }
         </script>
     </body>
 </html>
