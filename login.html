@@ -73,12 +73,12 @@
                     chrome.runtime &&
                     chrome.runtime.sendMessage
                 ) {
-                    // Method 1: Send to specific extension ID (replace with your extension ID)
-                    const YOUR_EXTENSION_ID = "YOUR_EXTENSION_ID_HERE"; // Replace this!
+                    // Send to specific extension ID
+                    const EXTENSION_ID = "fcgineabplfpfmpofhdejjkkphjfedcm";
 
                     // Try sending to specific extension ID
                     chrome.runtime.sendMessage(
-                        YOUR_EXTENSION_ID,
+                        EXTENSION_ID,
                         {
                             type: "USER_LOGGED_IN",
                             userInfo: userInfo,
@@ -141,22 +141,40 @@
                 }
             }
 
-            // Function to get extension ID dynamically
-            function getExtensionId() {
-                // Check if extension injected its ID
-                if (window.INTENTIONALITY_EXTENSION_ID) {
-                    return window.INTENTIONALITY_EXTENSION_ID;
-                }
+            // Function to send login success to extension
+            function sendLoginSuccessToExtension(user, token) {
+                const EXTENSION_ID = "fcgineabplfpfmpofhdejjkkphjfedcm";
 
-                // Check localStorage for extension ID
-                const storedExtensionId = localStorage.getItem(
-                    "intentionality_extension_id",
-                );
-                if (storedExtensionId) {
-                    return storedExtensionId;
+                if (
+                    typeof chrome !== "undefined" &&
+                    chrome.runtime &&
+                    chrome.runtime.sendMessage
+                ) {
+                    chrome.runtime.sendMessage(
+                        EXTENSION_ID,
+                        {
+                            type: "LOGIN_SUCCESS",
+                            token: token,
+                            userInfo: {
+                                uid: user.uid,
+                                email: user.email,
+                                displayName: user.displayName,
+                                photoURL: user.photoURL,
+                                loginTime: new Date().toISOString(),
+                            },
+                        },
+                        function (response) {
+                            if (chrome.runtime.lastError) {
+                                console.log(
+                                    "Extension communication error:",
+                                    chrome.runtime.lastError.message,
+                                );
+                            } else {
+                                console.log("Login success sent to extension");
+                            }
+                        },
+                    );
                 }
-
-                return "YOUR_EXTENSION_ID_HERE";
             }
 
             const firebaseConfig = {
@@ -211,6 +229,14 @@
                                 ).textContent = `✅ Login successful! Welcome ${
                                     result.user.displayName || result.user.email
                                 }`;
+
+                                // Get Firebase ID token and send to extension
+                                result.user.getIdToken(true).then((token) => {
+                                    sendLoginSuccessToExtension(
+                                        result.user,
+                                        token,
+                                    );
+                                });
 
                                 // Store user info in sessionStorage
                                 try {
@@ -271,6 +297,11 @@
                         ).textContent = `✅ Login successful! Welcome ${
                             result.user.displayName || result.user.email
                         }`;
+
+                        // Get Firebase ID token and send to extension
+                        result.user.getIdToken(true).then((token) => {
+                            sendLoginSuccessToExtension(result.user, token);
+                        });
 
                         // Store user info in sessionStorage
                         try {
