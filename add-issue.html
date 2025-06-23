@@ -10,6 +10,12 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         />
         <link rel="icon" type="image/png" sizes="16x16" href="icon16.png" />
+        <!-- Firebase App (the core Firebase SDK) -->
+        <script src="/lib/firebase-app-compat.js"></script>
+        <!-- Firebase Firestore -->
+        <script src="/lib/firebase-firestore-compat.js"></script>
+        <!-- Firebase config -->
+        <script src="/lib/firebase-config.js"></script>
         <style>
             body {
                 background: #18344a;
@@ -42,8 +48,14 @@
                 If you encounter any issues or have suggestions, please let us
                 know. Your feedback is important to us!
             </p>
-            <textarea
+            <input
+                type="text"
                 id="issueTitle"
+                class="w-full p-3 border border-gray-300 rounded-lg mb-4"
+                placeholder="Issue Title"
+            />
+            <textarea
+                id="issue"
                 class="w-full p-3 border border-gray-300 rounded-lg mb-4"
                 rows="4"
                 placeholder="Describe the issue or suggestion..."
@@ -62,23 +74,52 @@
                 Back to Home
             </a>
             <div
-                id="loginStatus"
-                class="text-medblue mt-5 text-center text-sm"
+                id="issueStatus"
+                class="text-green-600 font-semibold text-center mt-4"
             ></div>
         </div>
         <script>
             document
                 .getElementById("submitIssueButton")
-                .addEventListener("click", function () {
+                .addEventListener("click", async function () {
                     const issueTitle =
                         document.getElementById("issueTitle").value;
                     if (issueTitle.trim() === "") {
                         alert("Please enter an issue title.");
                         return;
                     }
-                    // Simulate a successful submission
-                    document.getElementById("loginStatus").innerText =
-                        "Issue submitted successfully!";
+                    const issueDescription =
+                        document.getElementById("issue").value;
+                    if (issueDescription.trim() === "") {
+                        alert("Please describe the issue or suggestion.");
+                        return;
+                    }
+
+                    // Save to Firestore
+                    try {
+                        if (
+                            typeof firebase === "undefined" ||
+                            !firebase.firestore
+                        ) {
+                            throw new Error("Firebase not available");
+                        }
+                        await firebase.firestore().collection("issues").add({
+                            title: issueTitle,
+                            description: issueDescription,
+                            timestamp: new Date(),
+                            userAgent: navigator.userAgent,
+                        });
+                        document.getElementById("issueStatus").innerText =
+                            "Issue submitted successfully!";
+                        document.getElementById("issueTitle").value = "";
+                        document.getElementById("issue").value = "";
+
+                        // TODO: Add notification logic here (email, webhook, etc.)
+                    } catch (error) {
+                        document.getElementById("issueStatus").innerText =
+                            "Failed to submit issue. Please try again.";
+                        console.error("Error submitting issue:", error);
+                    }
                 });
         </script>
     </body>
