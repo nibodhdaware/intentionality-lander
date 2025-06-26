@@ -229,12 +229,14 @@
                         <a
                             href="https://chromewebstore.google.com/detail/intentionality/bgmlmjomgakcgkgngpeimmkofpicpbfn"
                             class="bg-lightblue text-white px-6 py-2 rounded-lg hover:bg-medblue transition-colors text-center"
+                            onclick="if(window.posthog){posthog.capture('add_to_chrome_clicked', {location: 'navbar'});}"
                         >
                             Add to Chrome
                         </a>
                         <a
                             href="login.html"
                             class="bg-white text-lightblue border border-lightblue px-6 py-2 rounded-lg hover:bg-lightblue hover:text-white transition-colors text-center"
+                            onclick="if(window.posthog){posthog.capture('login_clicked', {location: 'navbar'});}"
                         >
                             Login
                         </a>
@@ -272,6 +274,7 @@
                             <a
                                 href="https://chromewebstore.google.com/detail/intentionality/bgmlmjomgakcgkgngpeimmkofpicpbfn"
                                 class="bg-lightblue text-white px-8 py-3 rounded-lg text-lg hover:bg-medblue transition-colors inline-block hover-lift pulse-animation"
+                                onclick="if(window.posthog){posthog.capture('add_to_chrome_clicked', {location: 'hero'});}"
                             >
                                 Get Started
                             </a>
@@ -418,6 +421,7 @@
                     <a
                         href="https://chromewebstore.google.com/detail/intentionality/bgmlmjomgakcgkgngpeimmkofpicpbfn"
                         class="bg-lightblue text-white px-8 py-3 rounded-lg text-lg hover:bg-medblue transition-colors inline-block"
+                        onclick="if(window.posthog){posthog.capture('add_to_chrome_clicked', {location: 'cta'});}"
                     >
                         Add to Chrome - It's Free
                     </a>
@@ -443,12 +447,14 @@
                         <a
                             href="#"
                             class="text-lightblue hover:text-white transition-colors hover-lift footer-icon-link"
+                            onclick="if(window.posthog){posthog.capture('footer_github_clicked');}"
                         >
                             <i class="fab fa-github"></i>
                         </a>
                         <a
                             href="#"
                             class="text-lightblue hover:text-white transition-colors hover-lift footer-icon-link"
+                            onclick="if(window.posthog){posthog.capture('footer_twitter_clicked');}"
                         >
                             <i class="fab fa-x-twitter"></i>
                         </a>
