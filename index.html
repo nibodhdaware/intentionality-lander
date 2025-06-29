@@ -3,7 +3,84 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Intentionality - Browse with Purpose</title>
+        <title>
+            Intentionality - Browse with Purpose | Make Your Browsing More
+            Intentional
+        </title>
+        <meta
+            name="description"
+            content="Intentionality helps you make your browsing more intentional. Stay focused, beat distractions, and build mindful browsing habits with our Chrome extension."
+        />
+        <meta
+            name="keywords"
+            content="intentional browsing, mindful browsing, browsing habits, productivity extension, focus tool, distraction blocker, mindful internet use, intentional web browsing, digital wellness, browser extension, Chrome extension, productivity tool, focus app, mindful technology, digital mindfulness, intentional internet use, browsing with purpose, mindful web browsing, productivity browser extension, focus browser extension"
+        />
+        <meta name="author" content="Intentionality" />
+        <meta name="robots" content="index, follow" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://intentionality.app/" />
+        <meta
+            property="og:title"
+            content="Intentionality - Make Your Browsing More Intentional"
+        />
+        <meta
+            property="og:description"
+            content="Transform your browsing habits with Intentionality. Stay focused, beat distractions, and make every click intentional with our mindful browsing extension."
+        />
+        <meta
+            property="og:image"
+            content="https://intentionality.app/extension-screenshot.png"
+        />
+        <meta
+            property="og:video"
+            content="https://intentionality.app/Screen%20Recording%202025-06-25%20at%202.57.18%20PM.mov"
+        />
+        <meta property="og:video:type" content="video/quicktime" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://intentionality.app/" />
+        <meta
+            property="twitter:title"
+            content="Intentionality - Make Your Browsing More Intentional"
+        />
+        <meta
+            property="twitter:description"
+            content="Transform your browsing habits with Intentionality. Stay focused, beat distractions, and make every click intentional."
+        />
+        <meta
+            property="twitter:image"
+            content="https://intentionality.app/extension-screenshot.png"
+        />
+
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://intentionality.app/" />
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                "name": "Intentionality",
+                "description": "Make your browsing more intentional with this mindful browsing Chrome extension. Stay focused, beat distractions, and build intentional browsing habits.",
+                "url": "https://intentionality.app/",
+                "applicationCategory": "ProductivityApplication",
+                "operatingSystem": "Chrome",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                },
+                "keywords": "intentional browsing, mindful browsing, browsing habits, productivity extension, focus tool, distraction blocker, mindful internet use, intentional web browsing, digital wellness, browser extension, Chrome extension, productivity tool, focus app, mindful technology, digital mindfulness, intentional internet use, browsing with purpose, mindful web browsing, productivity browser extension, focus browser extension",
+                "author": {
+                    "@type": "Organization",
+                    "name": "Intentionality"
+                }
+            }
+        </script>
+
         <link rel="icon" type="image/png" sizes="16x16" href="icon16.png" />
         <script src="https://cdn.tailwindcss.com"></script>
         <script>
@@ -279,12 +356,20 @@
                                 Get Started
                             </a>
                         </div>
-                        <div class="md:w-1/2 mt-10 md:mt-0 slide-in-right">
-                            <img
-                                src="extension-screenshot.png"
-                                alt="Intentionality Extension Screenshot"
-                                class="rounded-lg shadow-xl hover-lift"
-                            />
+                        <div class="flex-1 flex justify-center lg:justify-end">
+                            <div
+                                class="relative w-full max-w-lg aspect-video mt-8 md:mt-0 slide-in-right"
+                            >
+                                <iframe
+                                    src="https://www.youtube.com/embed/Za1jdKG8sw8"
+                                    title="Intentionality Chrome Extension Demo"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen
+                                    class="w-full h-full rounded-lg shadow-2xl"
+                                >
+                                </iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -356,54 +441,68 @@
                     >
                         How It Works
                     </h2>
-                    <div class="max-w-3xl mx-auto stagger-children">
-                        <div class="flex items-start mb-8 hover-lift">
-                            <div
-                                class="bg-lightblue text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-4"
-                            >
-                                1
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold mb-2">
-                                    Install the Extension
-                                </h3>
-                                <p class="text-lightblue">
-                                    Add Intentionality to your Chrome browser
-                                    with just one click.
-                                </p>
-                            </div>
+                    <div
+                        class="md:flex md:items-center md:space-x-12 max-w-5xl mx-auto"
+                    >
+                        <div class="mb-8 md:mb-0 md:w-1/2 flex justify-center">
+                            <img
+                                src="extension-screenshot.png"
+                                alt="Intentionality Chrome Extension screenshot showing intentional browsing productivity tool features and mindful web usage"
+                                class="rounded-lg shadow-2xl w-full max-w-xs md:max-w-full"
+                            />
                         </div>
-                        <div class="flex items-start mb-8 hover-lift">
-                            <div
-                                class="bg-lightblue text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-4"
-                            >
-                                2
+                        <div
+                            class="max-w-3xl mx-auto stagger-children md:w-1/2"
+                        >
+                            <div class="flex items-start mb-8 hover-lift">
+                                <div
+                                    class="bg-lightblue text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-4"
+                                >
+                                    1
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">
+                                        Install the Extension
+                                    </h3>
+                                    <p class="text-lightblue">
+                                        Add Intentionality to your Chrome
+                                        browser with just one click.
+                                    </p>
+                                </div>
                             </div>
-                            <div>
-                                <h3 class="text-xl font-semibold mb-2">
-                                    Browse Mindfully
-                                </h3>
-                                <p class="text-lightblue">
-                                    When visiting websites, you'll be prompted
-                                    to provide your reason for visiting.
-                                </p>
+                            <div class="flex items-start mb-8 hover-lift">
+                                <div
+                                    class="bg-lightblue text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-4"
+                                >
+                                    2
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">
+                                        Browse Mindfully
+                                    </h3>
+                                    <p class="text-lightblue">
+                                        When visiting websites, you'll be
+                                        prompted to provide your reason for
+                                        visiting.
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="flex items-start hover-lift">
-                            <div
-                                class="bg-lightblue text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-4"
-                            >
-                                3
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold mb-2">
-                                    Track Your Progress
-                                </h3>
-                                <p class="text-lightblue">
-                                    Review your browsing patterns and make more
-                                    intentional decisions about your online
-                                    time.
-                                </p>
+                            <div class="flex items-start hover-lift">
+                                <div
+                                    class="bg-lightblue text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-4"
+                                >
+                                    3
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">
+                                        Track Your Progress
+                                    </h3>
+                                    <p class="text-lightblue">
+                                        Review your browsing patterns and make
+                                        more intentional decisions about your
+                                        online time.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
