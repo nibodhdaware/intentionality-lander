@@ -153,12 +153,15 @@
         </script>
         <script>
             tailwind.config = {
+                darkMode: "media",
                 theme: {
                     extend: {
                         colors: {
                             deepblue: "#18344A", // background
                             medblue: "#295B7A", // eye
                             lightblue: "#4A90A4", // eye ring
+                            darkbg: "#0f1a2a", // dark mode background
+                            darktext: "#e2e8f0", // dark mode text
                         },
                         gradientColorStops: (theme) => ({
                             ...theme("colors"),
@@ -286,9 +289,15 @@
             .pulse-animation {
                 animation: pulse 2s infinite;
             }
+
+            /* Dark mode transitions */
+            * {
+                transition: background-color 0.3s ease, color 0.3s ease,
+                    border-color 0.3s ease;
+            }
         </style>
     </head>
-    <body class="bg-deepblue text-white">
+    <body class="bg-deepblue text-white dark:bg-darkbg dark:text-darktext">
         <!-- Hero Section -->
         <header
             class="bg-gradient-to-b from-deepblue-start to-deepblue-end shadow-sm"
@@ -312,7 +321,7 @@
                         </a>
                         <a
                             href="login.html"
-                            class="bg-white text-lightblue border border-lightblue px-6 py-2 rounded-lg hover:bg-lightblue hover:text-white transition-colors text-center"
+                            class="bg-white text-lightblue border border-lightblue px-6 py-2 rounded-lg hover:bg-lightblue hover:text-white transition-colors text-center dark:bg-darkbg dark:text-darktext dark:border-lightblue dark:hover:bg-lightblue dark:hover:text-white"
                             onclick="if(window.posthog){posthog.capture('login_clicked', {location: 'navbar'});}"
                         >
                             Login
@@ -376,16 +385,18 @@
             </section>
 
             <!-- Features Section -->
-            <section class="py-20 bg-white text-deepblue">
+            <section
+                class="py-20 bg-white text-deepblue dark:bg-darkbg dark:text-darktext"
+            >
                 <div class="container mx-auto px-6">
                     <h2
-                        class="text-3xl font-bold text-center text-deepblue mb-12 fade-in"
+                        class="text-3xl font-bold text-center text-deepblue mb-12 fade-in dark:text-darktext"
                     >
                         Key Features
                     </h2>
                     <div class="grid md:grid-cols-3 gap-8 stagger-children">
                         <div
-                            class="p-6 bg-lightblue bg-opacity-10 rounded-lg hover-lift"
+                            class="p-6 bg-lightblue bg-opacity-10 rounded-lg hover-lift dark:bg-lightblue dark:bg-opacity-20"
                         >
                             <div class="text-lightblue text-2xl mb-4">
                                 <i class="fas fa-brain"></i>
@@ -393,14 +404,14 @@
                             <h3 class="text-xl font-semibold mb-2">
                                 Mindful Browsing
                             </h3>
-                            <p class="text-medblue">
+                            <p class="text-medblue dark:text-lightblue">
                                 Take a moment to reflect on why you're visiting
                                 each website, helping you stay focused on your
                                 goals.
                             </p>
                         </div>
                         <div
-                            class="p-6 bg-lightblue bg-opacity-10 rounded-lg hover-lift"
+                            class="p-6 bg-lightblue bg-opacity-10 rounded-lg hover-lift dark:bg-lightblue dark:bg-opacity-20"
                         >
                             <div class="text-lightblue text-2xl mb-4">
                                 <i class="fas fa-chart-line"></i>
@@ -408,13 +419,13 @@
                             <h3 class="text-xl font-semibold mb-2">
                                 Track Your Habits
                             </h3>
-                            <p class="text-medblue">
+                            <p class="text-medblue dark:text-lightblue">
                                 Keep a log of your browsing patterns and reasons
                                 to better understand your online behavior.
                             </p>
                         </div>
                         <div
-                            class="p-6 bg-lightblue bg-opacity-10 rounded-lg hover-lift"
+                            class="p-6 bg-lightblue bg-opacity-10 rounded-lg hover-lift dark:bg-lightblue dark:bg-opacity-20"
                         >
                             <div class="text-lightblue text-2xl mb-4">
                                 <i class="fas fa-clock"></i>
@@ -422,7 +433,7 @@
                             <h3 class="text-xl font-semibold mb-2">
                                 Time Awareness
                             </h3>
-                            <p class="text-medblue">
+                            <p class="text-medblue dark:text-lightblue">
                                 Monitor how long you spend on different websites
                                 to better manage your time online.
                             </p>
@@ -543,6 +554,13 @@
                         </p>
                     </div>
                     <div class="flex space-x-6">
+                        <a
+                            href="changelog.html"
+                            class="text-lightblue hover:text-white transition-colors hover-lift footer-icon-link"
+                            onclick="if(window.posthog){posthog.capture('footer_changelog_clicked');}"
+                        >
+                            <i class="fas fa-history"></i>
+                        </a>
                         <a
                             href="#"
                             class="text-lightblue hover:text-white transition-colors hover-lift footer-icon-link"

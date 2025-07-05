@@ -12,6 +12,22 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         />
         <link rel="icon" type="image/png" sizes="16x16" href="icon16.png" />
+        <script>
+            tailwind.config = {
+                darkMode: "media",
+                theme: {
+                    extend: {
+                        colors: {
+                            deepblue: "#18344A", // background
+                            medblue: "#295B7A", // eye
+                            lightblue: "#4A90A4", // eye ring
+                            darkbg: "#0f1a2a", // dark mode background
+                            darktext: "#e2e8f0", // dark mode text
+                        },
+                    },
+                },
+            };
+        </script>
         <style>
             body {
                 background: #18344a;
@@ -28,39 +44,58 @@
                 border-color: #4285f4;
                 color: #4285f4;
             }
+            .google-btn.dark {
+                background: #1e293b;
+                color: #e2e8f0;
+                border: 1px solid #334155;
+            }
+            .google-btn.dark:hover {
+                box-shadow: 0 2px 8px rgba(66, 133, 244, 0.15);
+                border-color: #4285f4;
+                color: #4285f4;
+            }
             .google-icon {
                 color: #4285f4;
+            }
+            /* Dark mode transitions */
+            * {
+                transition: background-color 0.3s ease, color 0.3s ease,
+                    border-color 0.3s ease;
             }
         </style>
     </head>
     <body class="min-h-screen flex items-center justify-center">
         <div
-            class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-lg flex flex-col items-center"
+            class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-lg flex flex-col items-center dark:bg-darkbg dark:text-darktext"
         >
-            <h1 class="text-2xl font-bold text-deepblue mb-2">
+            <h1
+                class="text-2xl font-bold text-deepblue mb-2 dark:text-darktext"
+            >
                 Sign in to Intentionality
             </h1>
-            <p class="text-gray-600 mb-6 text-center text-base">
+            <p
+                class="text-gray-600 mb-6 text-center text-base dark:text-gray-300"
+            >
                 Sign in with Google to sync your activity and unlock all
                 features.
             </p>
             <button
                 id="loginWithGoogleButton"
-                class="google-btn w-full flex items-center justify-center gap-3 py-2.5 px-4 rounded-lg text-base mb-4"
+                class="google-btn w-full flex items-center justify-center gap-3 py-2.5 px-4 rounded-lg text-base mb-4 dark:google-btn-dark"
             >
                 <i class="fab fa-google google-icon text-lg"></i>
                 <span>Sign in with Google</span>
             </button>
             <a
                 href="index.html"
-                class="google-btn w-full flex items-center justify-center gap-3 py-2.5 px-4 rounded-lg text-base mb-4"
+                class="google-btn w-full flex items-center justify-center gap-3 py-2.5 px-4 rounded-lg text-base mb-4 dark:google-btn-dark"
             >
                 <i class="fas fa-arrow-left"></i>
                 Back to Home
             </a>
             <div
                 id="loginStatus"
-                class="text-medblue mt-5 text-center text-sm"
+                class="text-medblue mt-5 text-center text-sm dark:text-lightblue"
             ></div>
         </div>
 
