@@ -96,13 +96,13 @@
                             Version 1.2
                         </h2>
                         <span
-                            class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300"
+                            class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300"
                         >
-                            Latest
+                            In Review
                         </span>
                     </div>
                     <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
-                        Released: January 20, 2025
+                        Status: In Review - Expected Release: January 20, 2025
                     </p>
 
                     <div class="space-y-4">
@@ -115,6 +115,32 @@
                             <ul
                                 class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300"
                             >
+                                <li>
+                                    Automatic blocking system - websites in
+                                    blocklist are blocked immediately without
+                                    user interaction
+                                </li>
+                                <li>
+                                    Simplified permission model - no host
+                                    permissions required, uses only essential
+                                    permissions
+                                </li>
+                                <li>
+                                    Direct automatic blocking - no permission
+                                    dialogs or manual prompts needed
+                                </li>
+                                <li>
+                                    Enhanced activity tracking with automatic
+                                    logging of blocked site events
+                                </li>
+                                <li>
+                                    Improved error handling for Chart.js and
+                                    extension functionality
+                                </li>
+                                <li>
+                                    Content Security Policy compliance - removed
+                                    inline scripts for better security
+                                </li>
                                 <li>
                                     Automatic login redirect on extension
                                     installation
@@ -138,17 +164,38 @@
                             <ul
                                 class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300"
                             >
-                                <li>Streamlined first-time user experience</li>
                                 <li>
-                                    Better user retention through improved
-                                    onboarding
+                                    Removed all host permissions for enhanced
+                                    privacy and faster Chrome Web Store review
                                 </li>
                                 <li>
-                                    Enhanced feedback collection for product
-                                    improvement
+                                    Simplified background script - removed
+                                    permission request dialogs and manual
+                                    blocking code
                                 </li>
                                 <li>
-                                    More intuitive extension installation flow
+                                    Streamlined popup interface - removed
+                                    permission UI and manual blocking popups
+                                </li>
+                                <li>
+                                    Enhanced error handling - graceful fallbacks
+                                    for Chart.js and missing functions
+                                </li>
+                                <li>
+                                    Improved Content Security Policy compliance
+                                    - moved inline scripts to external files
+                                </li>
+                                <li>
+                                    Better code organization - removed dead code
+                                    and unused functions
+                                </li>
+                                <li>
+                                    Enhanced user control with automatic
+                                    blocking - no user interaction required
+                                </li>
+                                <li>
+                                    More intuitive extension behavior -
+                                    immediate blocking without prompts
                                 </li>
                             </ul>
                         </div>
@@ -162,6 +209,22 @@
                             <ul
                                 class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300"
                             >
+                                <li>
+                                    Zero-friction blocking - sites are blocked
+                                    automatically when added to blocklist
+                                </li>
+                                <li>
+                                    No permission prompts - extension works
+                                    immediately with current permissions
+                                </li>
+                                <li>
+                                    Seamless blocking experience - no manual
+                                    intervention required
+                                </li>
+                                <li>
+                                    Enhanced privacy with minimal permissions -
+                                    no host permissions needed
+                                </li>
                                 <li>Seamless installation-to-login flow</li>
                                 <li>
                                     Respectful feedback collection on uninstall
@@ -170,6 +233,38 @@
                                 <li>
                                     Better understanding of user needs and pain
                                     points
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3
+                                class="text-lg font-semibold text-deepblue dark:text-darktext mb-2"
+                            >
+                                🐛 Bug Fixes
+                            </h3>
+                            <ul
+                                class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300"
+                            >
+                                <li>
+                                    Fixed "logBlockingEvent is not defined"
+                                    error in background script
+                                </li>
+                                <li>
+                                    Resolved Content Security Policy violations
+                                    in why_prompt.html
+                                </li>
+                                <li>
+                                    Fixed Chart.js error handling and chart
+                                    destruction issues
+                                </li>
+                                <li>
+                                    Corrected function reference errors after
+                                    permission code removal
+                                </li>
+                                <li>
+                                    Fixed inline script execution issues by
+                                    moving to external files
                                 </li>
                             </ul>
                         </div>
