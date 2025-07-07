@@ -329,29 +329,35 @@
             <nav
                 class="container mx-auto px-6 py-4 flex items-center justify-between"
             >
-                <div
-                    class="text-2xl font-bold text-lightblue fade-in hidden md:block"
-                >
+                <div class="text-2xl font-bold text-lightblue fade-in">
                     Intentionality
                 </div>
-                <div
-                    class="flex items-center space-x-4 w-full md:w-auto mt-2 md:mt-0"
-                >
-                    <a
-                        href="https://chromewebstore.google.com/detail/intentionality/bgmlmjomgakcgkgngpeimmkofpicpbfn"
-                        class="bg-lightblue text-white px-6 py-2 rounded-lg hover:bg-medblue transition-colors text-center"
-                        onclick="if(window.posthog){posthog.capture('add_to_chrome_clicked', {location: 'navbar'});}"
+                <div class="hidden md:flex space-x-8 text-lg font-semibold">
+                    <a href="#features" class="hover:text-lightblue transition"
+                        >Features</a
                     >
-                        Add to Chrome
-                    </a>
                     <a
-                        href="login.html"
-                        class="bg-white text-lightblue border border-lightblue px-6 py-2 rounded-lg hover:bg-lightblue hover:text-white transition-colors text-center dark:bg-darkbg dark:text-darktext dark:border-lightblue dark:hover:bg-lightblue dark:hover:text-white"
-                        onclick="if(window.posthog){posthog.capture('login_clicked', {location: 'navbar'});}"
+                        href="#how-it-works"
+                        class="hover:text-lightblue transition"
+                        >How It Works</a
                     >
-                        Login
-                    </a>
+                    <a href="#pricing" class="hover:text-lightblue transition"
+                        >Pricing</a
+                    >
+                    <a
+                        href="#testimonials"
+                        class="hover:text-lightblue transition"
+                        >Testimonials</a
+                    >
+                    <a href="#faq" class="hover:text-lightblue transition"
+                        >FAQ</a
+                    >
                 </div>
+                <a
+                    href="#get-started"
+                    class="bg-lightblue text-white px-5 py-2 rounded-xl shadow hover:bg-medblue transition font-bold"
+                    >Get Started</a
+                >
             </nav>
         </header>
 
@@ -366,73 +372,86 @@
             <section
                 class="py-20 bg-gradient-to-br from-deepblue-start to-deepblue-end"
             >
-                <div class="container mx-auto px-6">
-                    <div class="flex flex-col md:flex-row items-center gap-10">
-                        <div class="md:w-1/2 slide-in-left">
-                            <div
-                                class="bg-white/20 dark:bg-darkbg/40 backdrop-blur-md shadow-2xl rounded-2xl p-10 flex flex-col items-start"
+                <div
+                    class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-10"
+                >
+                    <div class="md:w-1/2 slide-in-left">
+                        <div
+                            class="bg-white/20 dark:bg-darkbg/40 backdrop-blur-md shadow-2xl rounded-2xl p-10 flex flex-col items-start"
+                        >
+                            <h1
+                                class="text-5xl md:text-6xl font-extrabold text-white mb-6 tracking-tight"
                             >
-                                <h1
-                                    class="text-5xl md:text-6xl font-extrabold text-white mb-6 tracking-tight"
-                                >
-                                    Browse with Purpose,<br />
-                                    <span class="text-lightblue"
-                                        >Stay Focused</span
-                                    >
-                                </h1>
-                                <!-- Marketing Highlight Badge (inside hero) -->
-                                <div
-                                    class="flex justify-center md:justify-start mb-6 w-full"
-                                >
-                                    <div
-                                        class="bg-lightblue/90 text-white px-6 py-3 rounded-full shadow-lg text-lg font-semibold flex items-center gap-2"
-                                    >
-                                        <svg
-                                            class="w-5 h-5 text-white mr-2"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l2.036 6.29a1 1 0 00.95.69h6.631c.969 0 1.371 1.24.588 1.81l-5.37 3.905a1 1 0 00-.364 1.118l2.036 6.29c.3.921-.755 1.688-1.54 1.118l-5.37-3.905a1 1 0 00-1.176 0l-5.37 3.905c-.784.57-1.838-.197-1.54-1.118l2.036-6.29a1 1 0 00-.364-1.118L2.342 11.717c-.783-.57-.38-1.81.588-1.81h6.631a1 1 0 00.95-.69l2.036-6.29z"
-                                            />
-                                        </svg>
-                                        Trusted by 8+ users with 5-star ratings
-                                        on the Chrome Web Store
-                                    </div>
-                                </div>
-                                <p class="text-xl text-lightblue mb-8">
-                                    Intentionality helps you be more mindful
-                                    about your browsing habits by prompting you
-                                    to reflect on why you're visiting each
-                                    website.
-                                </p>
+                                Browse with Purpose
+                            </h1>
+                            <p class="text-xl text-lightblue mb-8">
+                                Intentionality helps you take control of your
+                                browsing habits by making you think twice before
+                                visiting distracting websites.
+                            </p>
+                            <div class="flex gap-4 mb-8">
                                 <a
-                                    href="https://chromewebstore.google.com/detail/intentionality/bgmlmjomgakcgkgngpeimmkofpicpbfn"
-                                    class="bg-lightblue text-white px-8 py-3 rounded-xl text-lg hover:bg-medblue transition-transform duration-200 hover:scale-105 shadow-lg font-bold mb-2"
-                                    onclick="if(window.posthog){posthog.capture('add_to_chrome_clicked', {location: 'hero'});}"
+                                    href="#get-started"
+                                    class="bg-lightblue text-white px-8 py-3 rounded-xl text-lg hover:bg-medblue transition-transform duration-200 hover:scale-105 shadow-lg font-bold"
+                                    >Get Started Free</a
                                 >
-                                    Get Started
-                                </a>
+                                <a
+                                    href="#features"
+                                    class="bg-white/80 text-lightblue px-8 py-3 rounded-xl text-lg hover:bg-lightblue hover:text-white transition font-bold border border-lightblue"
+                                    >Learn More</a
+                                >
+                            </div>
+                            <!-- Stats Bar -->
+                            <div class="flex flex-wrap gap-4 w-full mb-4">
+                                <div
+                                    class="flex-1 min-w-[180px] bg-lightblue/90 text-white rounded-xl px-6 py-4 flex flex-col items-center shadow-lg"
+                                >
+                                    <span class="text-2xl font-bold"
+                                        >Pause before you scroll</span
+                                    >
+                                    <span class="text-sm"
+                                        >Reflection prompts before distracting
+                                        sites</span
+                                    >
+                                </div>
+                                <div
+                                    class="flex-1 min-w-[180px] bg-lightblue/90 text-white rounded-xl px-6 py-4 flex flex-col items-center shadow-lg"
+                                >
+                                    <span class="text-2xl font-bold"
+                                        >Join mindful users</span
+                                    >
+                                    <span class="text-sm"
+                                        >Build better digital habits
+                                        together</span
+                                    >
+                                </div>
+                                <div
+                                    class="flex-1 min-w-[180px] bg-lightblue/90 text-white rounded-xl px-6 py-4 flex flex-col items-center shadow-lg"
+                                >
+                                    <span class="text-2xl font-bold"
+                                        >Designed to reduce mindless
+                                        scrolling</span
+                                    >
+                                    <span class="text-sm"
+                                        >Take control of your browsing</span
+                                    >
+                                </div>
                             </div>
                         </div>
-                        <div class="flex-1 flex justify-center lg:justify-end">
-                            <div
-                                class="relative w-full max-w-lg aspect-video mt-8 md:mt-0 slide-in-right bg-white/20 dark:bg-darkbg/40 backdrop-blur-md shadow-2xl rounded-2xl flex items-center justify-center overflow-hidden"
+                    </div>
+                    <div class="flex-1 flex justify-center lg:justify-end">
+                        <div
+                            class="relative w-full max-w-lg aspect-video mt-8 md:mt-0 slide-in-right bg-white/20 dark:bg-darkbg/40 backdrop-blur-md shadow-2xl rounded-2xl flex items-center justify-center overflow-hidden"
+                        >
+                            <iframe
+                                src="https://www.youtube.com/embed/PXsUAK_GsIQ"
+                                title="Intentionality Chrome Extension Demo"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                                class="w-full h-full rounded-2xl"
                             >
-                                <iframe
-                                    src="https://www.youtube.com/embed/PXsUAK_GsIQ"
-                                    title="Intentionality Chrome Extension Demo"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen
-                                    class="w-full h-full rounded-2xl"
-                                >
-                                </iframe>
-                            </div>
+                            </iframe>
                         </div>
                     </div>
                 </div>
@@ -440,13 +459,15 @@
 
             <!-- Features Section -->
             <section
+                id="features"
                 class="py-20 bg-white/60 dark:bg-darkbg/60 backdrop-blur-md"
             >
                 <div class="container mx-auto px-6">
                     <h2
-                        class="text-4xl font-extrabold text-center text-deepblue mb-12 fade-in dark:text-darktext tracking-tight"
+                        class="text-4xl font-extrabold text-center text-white mb-12 fade-in dark:text-darktext tracking-tight"
                     >
-                        Key Features
+                        Transform your browsing habits with our simple yet
+                        powerful features
                     </h2>
                     <div class="grid md:grid-cols-3 gap-8 stagger-children">
                         <div
@@ -455,17 +476,18 @@
                             <div
                                 class="bg-lightblue text-white p-4 rounded-full mb-4 shadow-lg"
                             >
-                                <i class="fas fa-brain text-2xl"></i>
+                                <i class="fas fa-ban text-2xl"></i>
                             </div>
                             <h3 class="text-xl font-semibold mb-2">
-                                Mindful Browsing
+                                Smart Block List
                             </h3>
                             <p
                                 class="text-medblue dark:text-lightblue text-center"
                             >
-                                Take a moment to reflect on why you're visiting
-                                each website, helping you stay focused on your
-                                goals.
+                                Create your personalized list of websites to
+                                block. When you try to visit them,
+                                Intentionality redirects you to our reflection
+                                page.
                             </p>
                         </div>
                         <div
@@ -474,16 +496,17 @@
                             <div
                                 class="bg-lightblue text-white p-4 rounded-full mb-4 shadow-lg"
                             >
-                                <i class="fas fa-chart-line text-2xl"></i>
+                                <i class="fas fa-question-circle text-2xl"></i>
                             </div>
                             <h3 class="text-xl font-semibold mb-2">
-                                Track Your Habits
+                                Purpose Reflection
                             </h3>
                             <p
                                 class="text-medblue dark:text-lightblue text-center"
                             >
-                                Keep a log of your browsing patterns and reasons
-                                to better understand your online behavior.
+                                Before accessing blocked sites, you'll be asked
+                                to select your reason and rate how productive
+                                your visit will be.
                             </p>
                         </div>
                         <div
@@ -492,16 +515,17 @@
                             <div
                                 class="bg-lightblue text-white p-4 rounded-full mb-4 shadow-lg"
                             >
-                                <i class="fas fa-clock text-2xl"></i>
+                                <i class="fas fa-chart-bar text-2xl"></i>
                             </div>
                             <h3 class="text-xl font-semibold mb-2">
-                                Time Awareness
+                                Insightful Analytics
                             </h3>
                             <p
                                 class="text-medblue dark:text-lightblue text-center"
                             >
-                                Monitor how long you spend on different websites
-                                to better manage your time online.
+                                Track your browsing habits with visual charts
+                                showing your "intentionality score" throughout
+                                the day and week.
                             </p>
                         </div>
                     </div>
@@ -510,13 +534,14 @@
 
             <!-- How It Works Section -->
             <section
+                id="how-it-works"
                 class="py-20 bg-gradient-to-br from-deepblue-start to-deepblue-end text-white"
             >
                 <div class="container mx-auto px-6">
                     <h2
                         class="text-4xl font-extrabold text-center text-white mb-12 fade-in tracking-tight"
                     >
-                        How It Works
+                        Your Journey to Intentional Browsing
                     </h2>
                     <div
                         class="md:flex md:items-center md:space-x-12 max-w-5xl mx-auto"
@@ -541,11 +566,13 @@
                                 </div>
                                 <div>
                                     <h3 class="text-xl font-semibold mb-2">
-                                        Install the Extension
+                                        Identify Distractions
                                     </h3>
                                     <p class="text-lightblue">
-                                        Add Intentionality to your Chrome
-                                        browser with just one click.
+                                        Add websites that frequently distract
+                                        you to your block list. Social media,
+                                        news sites, shopping - whatever wastes
+                                        your time.
                                     </p>
                                 </div>
                             </div>
@@ -559,12 +586,13 @@
                                 </div>
                                 <div>
                                     <h3 class="text-xl font-semibold mb-2">
-                                        Browse Mindfully
+                                        Reflect Before Access
                                     </h3>
                                     <p class="text-lightblue">
-                                        When visiting websites, you'll be
-                                        prompted to provide your reason for
-                                        visiting.
+                                        When you attempt to visit a blocked
+                                        site, Intentionality stops you and asks
+                                        you to select your reason and rate its
+                                        productivity.
                                     </p>
                                 </div>
                             </div>
@@ -578,12 +606,13 @@
                                 </div>
                                 <div>
                                     <h3 class="text-xl font-semibold mb-2">
-                                        Track Your Progress
+                                        Gain Insights & Improve
                                     </h3>
                                     <p class="text-lightblue">
-                                        Review your browsing patterns and make
-                                        more intentional decisions about your
-                                        online time.
+                                        Review your browsing patterns through
+                                        intuitive charts. See when you're most
+                                        distracted and track your progress over
+                                        time.
                                     </p>
                                 </div>
                             </div>
@@ -594,13 +623,14 @@
 
             <!-- Pricing Section -->
             <section
+                id="pricing"
                 class="py-20 bg-gradient-to-br from-white/60 to-lightblue/20 dark:from-darkbg/60 dark:to-lightblue/10 backdrop-blur-md"
             >
                 <div class="container mx-auto px-6">
                     <h2
                         class="text-4xl font-extrabold text-center mb-12 fade-in dark:text-darktext tracking-tight"
                     >
-                        Pricing
+                        Simple, Transparent Pricing
                     </h2>
                     <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                         <!-- Free Tier -->
@@ -612,26 +642,27 @@
                             <p
                                 class="mb-4 text-center text-lg text-medblue dark:text-lightblue font-medium"
                             >
-                                Get started with the essentials for mindful
-                                browsing—no cost, no commitment.
+                                Forever free core features
                             </p>
                             <ul
                                 class="mb-6 text-medblue dark:text-lightblue text-left list-disc list-inside"
                             >
-                                <li>
-                                    Access the Chrome Web Store version (stable,
-                                    but updates may arrive later due to review
-                                    times)
-                                </li>
-                                <li>
-                                    Enjoy a clean, focused Light Mode experience
-                                </li>
+                                <li>Basic website blocking</li>
+                                <li>Purpose reflection prompts</li>
+                                <li>Basic analytics dashboard</li>
+                                <li>Latest features (delayed access)</li>
+                                <li>Discord community access</li>
                             </ul>
                             <a
                                 href="https://chromewebstore.google.com/detail/intentionality/bgmlmjomgakcgkgngpeimmkofpicpbfn"
                                 class="bg-lightblue text-white px-6 py-2 rounded-xl hover:bg-medblue transition-transform duration-200 hover:scale-105 shadow-lg text-center w-full font-semibold"
-                                >Start for Free</a
+                                >Get from Chrome Store</a
                             >
+                            <p
+                                class="mt-2 text-xs text-medblue dark:text-lightblue text-center"
+                            >
+                                Includes review delays
+                            </p>
                         </div>
                         <!-- Paid Tier -->
                         <div
@@ -641,101 +672,331 @@
                                 class="bg-lightblue text-white px-3 py-1 rounded-full text-xs font-bold absolute top-4 right-4 shadow-lg"
                                 >Most Popular</span
                             >
-                            <div class="text-4xl font-bold mb-2">Pro</div>
+                            <div class="text-4xl font-bold mb-2">Premium</div>
                             <div class="text-2xl font-semibold mb-4">$1.99</div>
                             <p
                                 class="mb-4 text-center text-lg text-medblue dark:text-lightblue font-medium"
                             >
-                                Unlock the full Intentionality
-                                experience—designed for power users and early
-                                supporters.
+                                One-time payment
                             </p>
                             <ul
                                 class="mb-6 text-medblue dark:text-lightblue text-left list-disc list-inside"
                             >
-                                <li>
-                                    Be the first to access all the latest
-                                    features, instantly
-                                </li>
-                                <li>
-                                    Switch to beautiful Dark Mode for
-                                    comfortable night browsing
-                                </li>
-                                <li>
-                                    Join our exclusive Discord community for
-                                    support and focus challenges
-                                </li>
-                                <li>
-                                    Directly influence the roadmap—suggest and
-                                    vote on new features
-                                </li>
+                                <li>All free features included</li>
+                                <li>Direct download (no delays)</li>
+                                <li>Early access to new features</li>
+                                <li>Exclusive Discord community</li>
+                                <li>Advanced analytics & reports</li>
+                                <li>Priority support</li>
                             </ul>
                             <a
                                 href="https://nibod.gumroad.com/l/intentionality-pro"
                                 class="bg-lightblue text-white px-6 py-2 rounded-xl hover:bg-medblue transition-transform duration-200 hover:scale-105 shadow-lg text-center w-full font-semibold"
                                 target="_blank"
                                 rel="noopener"
-                                >Get Pro – $1.99</a
+                                >Get Premium Now</a
                             >
                             <p
-                                class="mt-2 text-sm text-medblue dark:text-lightblue text-center"
+                                class="mt-2 text-xs text-medblue dark:text-lightblue text-center"
                             >
-                                One-time payment. Instant access. No
-                                subscription.
+                                Instant access & updates
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
-        </main>
 
-        <!-- Footer -->
-        <footer
-            class="bg-darkbg/80 backdrop-blur-md text-lightblue py-10 rounded-t-2xl shadow-inner mt-20"
-        >
-            <div class="container mx-auto px-6">
-                <div
-                    class="flex flex-col md:flex-row justify-between items-center"
-                >
-                    <div class="mb-6 md:mb-0 fade-in">
-                        <div class="text-2xl font-bold text-lightblue">
-                            Intentionality
+            <!-- Testimonials Section -->
+            <section
+                id="testimonials"
+                class="py-20 bg-white/60 dark:bg-darkbg/60 backdrop-blur-md"
+            >
+                <div class="container mx-auto px-6">
+                    <h2
+                        class="text-4xl font-extrabold text-center text-white mb-12 tracking-tight"
+                    >
+                        What Our Users Say
+                    </h2>
+                    <div class="flex justify-center">
+                        <div
+                            class="bg-white/40 dark:bg-darkbg/40 backdrop-blur-md rounded-2xl shadow-2xl p-10 flex flex-col items-center max-w-xl w-full"
+                        >
+                            <div class="text-lightblue text-4xl mb-2">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="font-bold mb-1 text-xl">Sahil Kale</div>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400 mr-1 text-lg"
+                                    >★★★★★</span
+                                >
+                                <span class="text-xs text-medblue ml-2"
+                                    >4 Jul 2025</span
+                                >
+                            </div>
+                            <p
+                                class="text-center text-medblue dark:text-lightblue mb-4 text-lg font-medium"
+                            >
+                                "Have been using it since 2 days an mannnn let
+                                me say my procrastination is looong dead. This
+                                worksssssss!!!!!!"
+                            </p>
+                            <div
+                                class="w-full bg-lightblue/10 rounded-xl p-3 mt-2 flex items-center gap-2"
+                            >
+                                <img
+                                    src="https://avatars.githubusercontent.com/u/10270212?v=4"
+                                    alt="Nibodh Daware"
+                                    class="w-8 h-8 rounded-full"
+                                />
+                                <span class="font-bold text-lightblue"
+                                    >Nibodh Daware</span
+                                >
+                                <span
+                                    class="bg-green-200 text-green-800 text-xs px-2 py-1 rounded ml-2"
+                                    >Developer</span
+                                >
+                                <span class="text-xs text-medblue ml-2"
+                                    >4 Jul 2025</span
+                                >
+                                <span class="ml-4 text-medblue"
+                                    >Glad you liked it!</span
+                                >
+                            </div>
                         </div>
-                        <p class="text-lightblue mt-2">
-                            Browse with purpose, stay focused.
-                        </p>
                     </div>
-                    <div class="flex space-x-6">
-                        <a
-                            href="changelog.html"
-                            class="text-lightblue hover:text-white transition-colors hover-lift footer-icon-link"
-                            onclick="if(window.posthog){posthog.capture('footer_changelog_clicked');}"
+                    <!-- Before and After Section -->
+                    <div class="flex justify-center mt-12">
+                        <div
+                            class="flex flex-col md:flex-row items-center gap-8 bg-white/40 dark:bg-darkbg/40 backdrop-blur-md rounded-2xl shadow-xl p-8 max-w-2xl w-full"
                         >
-                            <i class="fas fa-history"></i>
-                        </a>
-                        <a
-                            href="#"
-                            class="text-lightblue hover:text-white transition-colors hover-lift footer-icon-link"
-                            onclick="if(window.posthog){posthog.capture('footer_github_clicked');}"
-                        >
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a
-                            href="#"
-                            class="text-lightblue hover:text-white transition-colors hover-lift footer-icon-link"
-                            onclick="if(window.posthog){posthog.capture('footer_twitter_clicked');}"
-                        >
-                            <i class="fab fa-x-twitter"></i>
-                        </a>
+                            <div class="flex flex-col items-center flex-1">
+                                <span
+                                    class="text-3xl font-bold text-red-500 mb-2"
+                                    >8.5 hrs</span
+                                >
+                                <span
+                                    class="text-medblue dark:text-lightblue font-semibold mb-2"
+                                    >Before Intentionality</span
+                                >
+                                <div
+                                    class="w-32 h-3 bg-red-200 rounded-full mb-2"
+                                >
+                                    <div
+                                        class="h-3 bg-red-500 rounded-full"
+                                        style="width: 100%"
+                                    ></div>
+                                </div>
+                            </div>
+                            <div class="text-3xl font-bold text-lightblue mx-4">
+                                →
+                            </div>
+                            <div class="flex flex-col items-center flex-1">
+                                <span
+                                    class="text-3xl font-bold text-green-500 mb-2"
+                                    >3 hrs</span
+                                >
+                                <span
+                                    class="text-medblue dark:text-lightblue font-semibold mb-2"
+                                    >After Intentionality</span
+                                >
+                                <div
+                                    class="w-32 h-3 bg-green-200 rounded-full mb-2"
+                                >
+                                    <div
+                                        class="h-3 bg-green-500 rounded-full"
+                                        style="width: 35%"
+                                    ></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div
-                    class="border-t border-lightblue mt-8 pt-8 text-center text-lightblue fade-in"
-                >
-                    <p>&copy; 2025 Intentionality. All rights reserved.</p>
+            </section>
+
+            <!-- FAQ Section -->
+            <section
+                id="faq"
+                class="py-20 bg-gradient-to-br from-deepblue-start to-deepblue-end text-white"
+            >
+                <div class="container mx-auto px-6">
+                    <h2
+                        class="text-4xl font-extrabold text-center text-white mb-12 tracking-tight"
+                    >
+                        Frequently Asked Questions
+                    </h2>
+                    <div class="max-w-3xl mx-auto space-y-8">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">
+                                How does Intentionality differ from other
+                                website blockers?
+                            </h3>
+                            <p class="text-lightblue">
+                                Intentionality goes beyond blocking—it makes you
+                                reflect on your purpose, helping you build
+                                lasting habits, not just avoid sites.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">
+                                Is my data private and secure?
+                            </h3>
+                            <p class="text-lightblue">
+                                Yes. Your data is stored securely and never
+                                sold. You control your information at all times.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">
+                                Can I use Intentionality on multiple devices?
+                            </h3>
+                            <p class="text-lightblue">
+                                Absolutely! Sync your block list and analytics
+                                across all your Chrome browsers.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">
+                                What happens if I want to access a blocked site
+                                urgently?
+                            </h3>
+                            <p class="text-lightblue">
+                                You can always proceed after reflecting on your
+                                reason—Intentionality is about mindful choice,
+                                not restriction.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">
+                                How often are new features added?
+                            </h3>
+                            <p class="text-lightblue">
+                                We're always improving! Premium users get early
+                                access to new features as soon as they're ready.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </footer>
+            </section>
+
+            <!-- Final CTA Section -->
+            <section
+                id="get-started"
+                class="py-20 bg-white/60 dark:bg-darkbg/60 backdrop-blur-md"
+            >
+                <div class="container mx-auto px-6 text-center">
+                    <h2
+                        class="text-4xl font-extrabold mb-6 text-deepblue dark:text-lightblue tracking-tight"
+                    >
+                        Take Control of Your Browsing Today
+                    </h2>
+                    <p class="mb-8 text-lg text-medblue dark:text-lightblue">
+                        Join thousands of users who have transformed their
+                        digital habits with Intentionality
+                    </p>
+                    <div
+                        class="flex flex-col md:flex-row gap-4 justify-center mb-4"
+                    >
+                        <a
+                            href="https://chromewebstore.google.com/detail/intentionality/bgmlmjomgakcgkgngpeimmkofpicpbfn"
+                            class="bg-lightblue text-white px-8 py-3 rounded-xl text-lg hover:bg-medblue transition-transform duration-200 hover:scale-105 shadow-lg font-bold"
+                            >Get Free Version</a
+                        >
+                        <a
+                            href="https://nibod.gumroad.com/l/intentionality-pro"
+                            class="bg-white/80 text-lightblue px-8 py-3 rounded-xl text-lg hover:bg-lightblue hover:text-white transition font-bold border border-lightblue shadow-lg"
+                            target="_blank"
+                            rel="noopener"
+                            >Upgrade to Premium</a
+                        >
+                    </div>
+                    <p class="text-xs text-medblue dark:text-lightblue mt-2">
+                        30-day money back guarantee on Premium
+                    </p>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer
+                class="bg-darkbg/80 backdrop-blur-md text-lightblue py-10 rounded-t-2xl shadow-inner mt-20"
+            >
+                <div class="container mx-auto px-6">
+                    <div
+                        class="flex flex-col md:flex-row justify-between items-center"
+                    >
+                        <div class="mb-6 md:mb-0 fade-in">
+                            <div class="text-2xl font-bold text-lightblue">
+                                Intentionality
+                            </div>
+                            <p class="text-lightblue mt-2">
+                                Browse with purpose. Live with intention.
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col md:flex-row gap-8 text-sm mt-6 md:mt-0"
+                        >
+                            <div>
+                                <div class="font-bold mb-2">Product</div>
+                                <a
+                                    href="#features"
+                                    class="block hover:text-white"
+                                    >Features</a
+                                >
+                                <a
+                                    href="#pricing"
+                                    class="block hover:text-white"
+                                    >Pricing</a
+                                >
+                                <a
+                                    href="#get-started"
+                                    class="block hover:text-white"
+                                    >Download</a
+                                >
+                                <a href="#" class="block hover:text-white"
+                                    >Roadmap</a
+                                >
+                            </div>
+                            <div>
+                                <div class="font-bold mb-2">Resources</div>
+                                <a href="#" class="block hover:text-white"
+                                    >Blog</a
+                                >
+                                <a href="#" class="block hover:text-white"
+                                    >Guides</a
+                                >
+                                <a href="#faq" class="block hover:text-white"
+                                    >Support</a
+                                >
+                                <a
+                                    href="#testimonials"
+                                    class="block hover:text-white"
+                                    >Community</a
+                                >
+                            </div>
+                            <div>
+                                <div class="font-bold mb-2">Company</div>
+                                <a href="#" class="block hover:text-white"
+                                    >About</a
+                                >
+                                <a href="#" class="block hover:text-white"
+                                    >Careers</a
+                                >
+                                <a href="#" class="block hover:text-white"
+                                    >Contact</a
+                                >
+                                <a href="#" class="block hover:text-white"
+                                    >Privacy Policy</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="border-t border-lightblue mt-8 pt-8 text-center text-lightblue fade-in"
+                    >
+                        <p>&copy; 2025 Intentionality. All rights reserved.</p>
+                    </div>
+                </div>
+            </footer>
+        </main>
 
         <script>
             // Intersection Observer for scroll animations
