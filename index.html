@@ -3,834 +3,136 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>
-            Intentionality - Browse with Purpose | Make Your Browsing More
-            Intentional
-        </title>
-        <meta
-            name="description"
-            content="Intentionality helps you make your browsing more intentional. Stay focused, beat distractions, and build mindful browsing habits with our Chrome extension."
-        />
-        <meta
-            name="keywords"
-            content="intentional browsing, mindful browsing, browsing habits, productivity extension, focus tool, distraction blocker, mindful internet use, intentional web browsing, digital wellness, browser extension, Chrome extension, productivity tool, focus app, mindful technology, digital mindfulness, intentional internet use, browsing with purpose, mindful web browsing, productivity browser extension, focus browser extension"
-        />
-        <meta name="author" content="Intentionality" />
-        <meta name="robots" content="index, follow" />
-
-        <!-- Canonical URL (only one, correct location) -->
-        <link rel="canonical" href="https://intentionality.app/" />
-
-        <!-- SEO Meta Tags -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="theme-color" content="#18344A" />
-        <meta name="googlebot" content="index,follow" />
-        <meta name="author" content="Intentionality" />
-        <meta
-            name="copyright"
-            content="2025 Intentionality. All rights reserved."
-        />
-        <meta name="application-name" content="Intentionality" />
-        <meta name="msapplication-TileColor" content="#18344A" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta
-            name="apple-mobile-web-app-status-bar-style"
-            content="black-translucent"
-        />
-        <meta name="apple-mobile-web-app-title" content="Intentionality" />
-        <!-- If you have a manifest.json, uncomment below: -->
-        <!-- <link rel="manifest" href="/manifest.json" /> -->
-
-        <!-- Open Graph / Facebook -->
-        <meta property="og:site_name" content="Intentionality" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://intentionality.app/" />
-        <meta
-            property="og:title"
-            content="Intentionality - Make Your Browsing More Intentional"
-        />
-        <meta
-            property="og:description"
-            content="Transform your browsing habits with Intentionality. Stay focused, beat distractions, and make every click intentional with our mindful browsing extension."
-        />
-        <meta
-            property="og:image"
-            content="https://intentionality.app/extension-screenshot.png"
-        />
-        <meta
-            property="og:video"
-            content="https://intentionality.app/Screen%20Recording%202025-06-25%20at%202.57.18%20PM.mov"
-        />
-        <meta property="og:video:type" content="video/quicktime" />
-
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://intentionality.app/" />
-        <meta
-            property="twitter:title"
-            content="Intentionality - Make Your Browsing More Intentional"
-        />
-        <meta
-            property="twitter:description"
-            content="Transform your browsing habits with Intentionality. Stay focused, beat distractions, and make every click intentional."
-        />
-        <meta
-            property="twitter:image"
-            content="https://intentionality.app/extension-screenshot.png"
-        />
-
-        <!-- Structured Data -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "SoftwareApplication",
-                "name": "Intentionality",
-                "description": "Make your browsing more intentional with this mindful browsing Chrome extension. Stay focused, beat distractions, and build intentional browsing habits.",
-                "url": "https://intentionality.app/",
-                "applicationCategory": "ProductivityApplication",
-                "operatingSystem": "Chrome",
-                "offers": {
-                    "@type": "Offer",
-                    "price": "0",
-                    "priceCurrency": "USD"
-                },
-                "keywords": "intentional browsing, mindful browsing, browsing habits, productivity extension, focus tool, distraction blocker, mindful internet use, intentional web browsing, digital wellness, browser extension, Chrome extension, productivity tool, focus app, mindful technology, digital mindfulness, intentional internet use, browsing with purpose, mindful web browsing, productivity browser extension, focus browser extension",
-                "author": {
-                    "@type": "Organization",
-                    "name": "Intentionality"
-                }
-            }
-        </script>
+        <title>Intentionality</title>
+        <script src="https://cdn.tailwindcss.com"></script>
         <link rel="icon" type="image/png" sizes="16x16" href="icon16.png" />
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
             rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         />
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script>
-            !(function (t, e) {
-                var o, n, p, r;
-                e.__SV ||
-                    ((window.posthog = e),
-                    (e._i = []),
-                    (e.init = function (i, s, a) {
-                        function g(t, e) {
-                            var o = e.split(".");
-                            2 == o.length && ((t = t[o[0]]), (e = o[1])),
-                                (t[e] = function () {
-                                    t.push(
-                                        [e].concat(
-                                            Array.prototype.slice.call(
-                                                arguments,
-                                                0,
-                                            ),
-                                        ),
-                                    );
-                                });
-                        }
-                        ((p = t.createElement("script")).type =
-                            "text/javascript"),
-                            (p.crossOrigin = "anonymous"),
-                            (p.async = !0),
-                            (p.src =
-                                s.api_host.replace(
-                                    ".i.posthog.com",
-                                    "-assets.i.posthog.com",
-                                ) + "/static/array.js"),
-                            (r =
-                                t.getElementsByTagName(
-                                    "script",
-                                )[0]).parentNode.insertBefore(p, r);
-                        var u = e;
-                        for (
-                            void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
-                                u.people = u.people || [],
-                                u.toString = function (t) {
-                                    var e = "posthog";
-                                    return (
-                                        "posthog" !== a && (e += "." + a),
-                                        t || (e += " (stub)"),
-                                        e
-                                    );
-                                },
-                                u.people.toString = function () {
-                                    return u.toString(1) + ".people (stub)";
-                                },
-                                o =
-                                    "init Ie Ts Ms Ee Es Rs capture Ge calculateEventProperties Os register register_once register_for_session unregister unregister_for_session js getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Ds Fs createPersonProfile Ls Ps opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing Cs debug I As getPageViewId captureTraceFeedback captureTraceMetric".split(
-                                        " ",
-                                    ),
-                                n = 0;
-                            n < o.length;
-                            n++
-                        )
-                            g(u, o[n]);
-                        e._i.push([i, s, a]);
-                    }),
-                    (e.__SV = 1));
-            })(document, window.posthog || []);
-            posthog.init("phc_jHt5972JB5vkNkCtZ8uiATQmIzX2YEzKvCpWaRjRIDO", {
-                api_host: "https://us.i.posthog.com",
-                defaults: "2025-05-24",
-                person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
-            });
-        </script>
         <script>
             tailwind.config = {
                 darkMode: "media",
                 theme: {
                     extend: {
                         colors: {
-                            deepblue: "#18344A", // background
-                            medblue: "#295B7A", // eye
-                            lightblue: "#4A90A4", // eye ring
-                            darkbg: "#0f1a2a", // dark mode background
-                            darktext: "#e2e8f0", // dark mode text
+                            deepblue: "#18344A",
+                            medblue: "#295B7A",
+                            lightblue: "#4A90A4",
+                            darkbg: "#0f1a2a",
+                            darktext: "#e2e8f0",
                         },
-                        gradientColorStops: (theme) => ({
-                            ...theme("colors"),
-                            "deepblue-start": "#18344A",
-                            "deepblue-end": "#295B7A",
-                        }),
                     },
                 },
             };
         </script>
-        <!-- Google tag (gtag.js) -->
-        <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-1891HVELCR"
-        ></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
-
-            gtag("config", "G-1891HVELCR");
-        </script>
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        />
         <style>
-            /* Animation Classes */
-            .fade-in {
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            body {
+                background: #18344a;
             }
-
-            .fade-in.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            .slide-in-left {
-                opacity: 0;
-                transform: translateX(-50px);
-                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-            }
-
-            .slide-in-left.visible {
-                opacity: 1;
-                transform: translateX(0);
-            }
-
-            .slide-in-right {
-                opacity: 0;
-                transform: translateX(50px);
-                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-            }
-
-            .slide-in-right.visible {
-                opacity: 1;
-                transform: translateX(0);
-            }
-
-            .scale-in {
-                opacity: 0;
-                transform: scale(0.9);
-                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-            }
-
-            .scale-in.visible {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            /* Stagger children animations */
-            .stagger-children > * {
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-            }
-
-            .stagger-children.visible > * {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            .stagger-children.visible > *:nth-child(1) {
-                transition-delay: 0.1s;
-            }
-            .stagger-children.visible > *:nth-child(2) {
-                transition-delay: 0.2s;
-            }
-            .stagger-children.visible > *:nth-child(3) {
-                transition-delay: 0.3s;
-            }
-
-            /* Hover animations */
-            .hover-lift {
-                transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-                will-change: transform;
-            }
-
-            .hover-lift:hover {
-                transform: translateY(-5px);
-            }
-
-            /* Footer icon color transition only */
-            .footer-icon-link {
-                transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            /* Button pulse animation */
-            @keyframes pulse {
-                0% {
-                    transform: scale(1);
-                }
-                50% {
-                    transform: scale(1.05);
-                }
-                100% {
-                    transform: scale(1);
-                }
-            }
-
-            .pulse-animation {
-                animation: pulse 2s infinite;
-            }
-
-            /* Dark mode transitions */
             * {
                 transition: background-color 0.3s ease, color 0.3s ease,
                     border-color 0.3s ease;
             }
         </style>
+        <meta property="og:title" content="Intentionality" />
+        <meta
+            property="og:description"
+            content="Take control of your browsing habits. Pause before you scroll. Add Intentionality to Chrome for mindful, distraction-free browsing."
+        />
+        <meta property="og:url" content="https://intentionality.app/" />
+        <meta
+            property="og:image"
+            content="https://intentionality.app/extension-screenshot.png"
+        />
     </head>
-    <body class="bg-deepblue text-white dark:bg-darkbg dark:text-darktext">
-        <!-- Hero Section -->
-        <header
-            class="sticky top-0 z-50 bg-white/30 dark:bg-darkbg/30 backdrop-blur-md shadow-md transition-all duration-300 w-full"
+    <body class="min-h-screen flex items-center justify-center">
+        <div
+            class="bg-white/80 dark:bg-darkbg/80 backdrop-blur-md rounded-2xl shadow-2xl p-8 w-full max-w-xl flex flex-col items-center"
         >
-            <nav
-                class="container mx-auto px-6 py-4 flex items-center justify-between"
-            >
-                <div class="text-2xl font-bold text-lightblue fade-in">
-                    Intentionality
-                </div>
-                <div class="hidden md:flex space-x-8 text-lg font-semibold">
-                    <a href="#features" class="hover:text-lightblue transition"
-                        >Features</a
-                    >
-                    <a
-                        href="#how-it-works"
-                        class="hover:text-lightblue transition"
-                        >How It Works</a
-                    >
-                    <a
-                        href="#testimonials"
-                        class="hover:text-lightblue transition"
-                        >Testimonials</a
-                    >
-                    <a href="#faq" class="hover:text-lightblue transition"
-                        >FAQ</a
-                    >
-                </div>
-                <a
-                    href="#get-started"
-                    class="bg-lightblue text-white px-5 py-2 rounded-xl shadow hover:bg-medblue transition font-bold"
-                    >Get Started</a
-                >
-            </nav>
-        </header>
-
-        <main>
-            <!-- Mobile-only Intentionality name -->
-            <div
-                class="block md:hidden text-3xl font-bold text-center text-lightblue mt-8 mb-4"
+            <h1
+                class="text-3xl font-extrabold text-deepblue mb-2 dark:text-darktext text-center"
             >
                 Intentionality
+            </h1>
+            <p
+                class="text-lg text-medblue mb-6 text-center dark:text-lightblue"
+            >
+                Take control of your browsing habits. Pause before you scroll.
+                Add Intentionality to Chrome for mindful, distraction-free
+                browsing.
+            </p>
+            <a
+                href="https://chromewebstore.google.com/detail/intentionality/bgmlmjomgakcgkgngpeimmkofpicpbfn"
+                class="bg-lightblue text-white px-8 py-3 rounded-xl text-lg hover:bg-medblue transition-transform duration-200 hover:scale-105 shadow-lg font-bold mb-8 w-full text-center"
+                >Add to Chrome</a
+            >
+            <div
+                class="w-full max-w-lg aspect-video h-64 bg-white/20 dark:bg-darkbg/40 backdrop-blur-md shadow-xl rounded-2xl flex items-center justify-center overflow-hidden mb-8"
+            >
+                <iframe
+                    src="https://www.youtube.com/embed/PXsUAK_GsIQ"
+                    title="Intentionality Chrome Extension Demo"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    class="w-full h-full rounded-2xl"
+                ></iframe>
             </div>
-            <!-- Hero Section -->
-            <section
-                class="py-20 bg-gradient-to-br from-deepblue-start to-deepblue-end"
-            >
-                <div
-                    class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-10"
-                >
-                    <div class="md:w-1/2 slide-in-left">
-                        <div
-                            class="bg-white/20 dark:bg-darkbg/40 backdrop-blur-md shadow-2xl rounded-2xl p-10 flex flex-col items-start"
-                        >
-                            <h1
-                                class="text-5xl md:text-6xl font-extrabold text-white mb-6 tracking-tight"
-                            >
-                                Browse with Purpose
-                            </h1>
-                            <p class="text-xl text-lightblue mb-8">
-                                Intentionality helps you take control of your
-                                browsing habits by making you think twice before
-                                visiting distracting websites.
-                            </p>
-                            <div class="flex gap-4 mb-8">
-                                <a
-                                    href="#get-started"
-                                    class="bg-lightblue text-white px-8 py-3 rounded-xl text-lg hover:bg-medblue transition-transform duration-200 hover:scale-105 shadow-lg font-bold"
-                                    >Get Started Free</a
-                                >
-                                <a
-                                    href="#features"
-                                    class="bg-white/80 text-lightblue px-8 py-3 rounded-xl text-lg hover:bg-lightblue hover:text-white transition font-bold border border-lightblue"
-                                    >Learn More</a
-                                >
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-1 flex justify-center lg:justify-end">
-                        <div
-                            class="relative w-full max-w-2xl aspect-video h-96 mt-8 md:mt-0 slide-in-right bg-white/20 dark:bg-darkbg/40 backdrop-blur-md shadow-2xl rounded-2xl flex items-center justify-center overflow-hidden"
-                        >
-                            <iframe
-                                src="https://www.youtube.com/embed/PXsUAK_GsIQ"
-                                title="Intentionality Chrome Extension Demo"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen
-                                class="w-full h-full rounded-2xl"
-                            >
-                            </iframe>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Features Section -->
-            <section
-                id="features"
-                class="py-20 bg-white/60 dark:bg-darkbg/60 backdrop-blur-md"
-            >
-                <div class="container mx-auto px-6">
-                    <h2
-                        class="text-4xl font-extrabold text-center text-white mb-12 fade-in dark:text-darktext tracking-tight"
-                    >
-                        Transform your browsing habits with our simple yet
-                        powerful features
-                    </h2>
-                    <div class="grid md:grid-cols-3 gap-8 stagger-children">
-                        <div
-                            class="p-8 bg-white/40 dark:bg-darkbg/40 backdrop-blur-md rounded-2xl shadow-lg hover-lift flex flex-col items-center"
-                        >
-                            <div
-                                class="bg-lightblue text-white p-4 rounded-full mb-4 shadow-lg"
-                            >
-                                <i class="fas fa-ban text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold mb-2">
-                                Smart Block List
-                            </h3>
-                            <p
-                                class="text-medblue dark:text-lightblue text-center"
-                            >
-                                Create your personalized list of websites to
-                                block. When you try to visit them,
-                                Intentionality redirects you to our reflection
-                                page.
-                            </p>
-                        </div>
-                        <div
-                            class="p-8 bg-white/40 dark:bg-darkbg/40 backdrop-blur-md rounded-2xl shadow-lg hover-lift flex flex-col items-center"
-                        >
-                            <div
-                                class="bg-lightblue text-white p-4 rounded-full mb-4 shadow-lg"
-                            >
-                                <i class="fas fa-question-circle text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold mb-2">
-                                Purpose Reflection
-                            </h3>
-                            <p
-                                class="text-medblue dark:text-lightblue text-center"
-                            >
-                                Before accessing blocked sites, you'll be asked
-                                to select your reason and rate how productive
-                                your visit will be.
-                            </p>
-                        </div>
-                        <div
-                            class="p-8 bg-white/40 dark:bg-darkbg/40 backdrop-blur-md rounded-2xl shadow-lg hover-lift flex flex-col items-center"
-                        >
-                            <div
-                                class="bg-lightblue text-white p-4 rounded-full mb-4 shadow-lg"
-                            >
-                                <i class="fas fa-chart-bar text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold mb-2">
-                                Insightful Analytics
-                            </h3>
-                            <p
-                                class="text-medblue dark:text-lightblue text-center"
-                            >
-                                Track your browsing habits with visual charts
-                                showing your "intentionality score" throughout
-                                the day and week.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- How It Works Section -->
-            <section
-                id="how-it-works"
-                class="py-20 bg-gradient-to-br from-deepblue-start to-deepblue-end text-white"
-            >
-                <div class="container mx-auto px-6">
-                    <h2
-                        class="text-4xl font-extrabold text-center text-white mb-12 fade-in tracking-tight"
-                    >
-                        Your Journey to Intentional Browsing
-                    </h2>
+            <section id="testimonials" class="w-full">
+                <h2 class="text-2xl font-bold text-center text-lightblue mb-6">
+                    What Our Users Say
+                </h2>
+                <div class="flex justify-center">
                     <div
-                        class="md:flex md:items-center md:space-x-12 max-w-5xl mx-auto"
+                        class="bg-white/60 dark:bg-darkbg/60 backdrop-blur-md rounded-2xl shadow-xl p-6 flex flex-col items-center max-w-md w-full"
                     >
-                        <div class="mb-8 md:mb-0 md:w-1/2 flex justify-center">
+                        <div class="text-lightblue text-3xl mb-2">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="font-bold mb-1 text-lg dark:text-white">
+                            Sahil Kale
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <span class="text-yellow-400 mr-1 text-lg"
+                                >★★★★★</span
+                            >
+                            <span class="text-xs text-medblue ml-2"
+                                >4 Jul 2025</span
+                            >
+                        </div>
+                        <p
+                            class="text-center text-medblue dark:text-lightblue mb-4 text-base font-medium"
+                        >
+                            "Have been using it since 2 days an mannnn let me
+                            say my procrastination is looong dead. This
+                            worksssssss!!!!!!"
+                        </p>
+                        <div
+                            class="w-full bg-lightblue/10 rounded-xl p-3 mt-2 flex items-center gap-2"
+                        >
                             <img
-                                src="extension-screenshot.jpeg"
-                                alt="Intentionality Chrome Extension screenshot showing intentional browsing productivity tool features and mindful web usage"
-                                class="rounded-2xl shadow-2xl w-full max-w-xs md:max-w-full bg-white/30 dark:bg-darkbg/30 backdrop-blur-md p-2"
+                                src="https://avatars.githubusercontent.com/u/10270212?v=4"
+                                alt="Nibodh Daware"
+                                class="w-8 h-8 rounded-full"
                             />
-                        </div>
-                        <div
-                            class="max-w-3xl mx-auto stagger-children md:w-1/2"
-                        >
-                            <div
-                                class="flex items-start mb-8 hover-lift bg-white/30 dark:bg-darkbg/30 backdrop-blur-md rounded-xl p-6 shadow-lg"
+                            <span class="font-bold text-lightblue"
+                                >Nibodh Daware</span
                             >
-                                <div
-                                    class="bg-lightblue text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-4 shadow-lg"
-                                >
-                                    1
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-semibold mb-2">
-                                        Identify Distractions
-                                    </h3>
-                                    <p class="text-lightblue">
-                                        Add websites that frequently distract
-                                        you to your block list. Social media,
-                                        news sites, shopping - whatever wastes
-                                        your time.
-                                    </p>
-                                </div>
-                            </div>
-                            <div
-                                class="flex items-start mb-8 hover-lift bg-white/30 dark:bg-darkbg/30 backdrop-blur-md rounded-xl p-6 shadow-lg"
+                            <span
+                                class="bg-green-200 text-green-800 text-xs px-2 py-1 rounded ml-2"
+                                >Developer</span
                             >
-                                <div
-                                    class="bg-lightblue text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-4 shadow-lg"
-                                >
-                                    2
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-semibold mb-2">
-                                        Reflect Before Access
-                                    </h3>
-                                    <p class="text-lightblue">
-                                        When you attempt to visit a blocked
-                                        site, Intentionality stops you and asks
-                                        you to select your reason and rate its
-                                        productivity.
-                                    </p>
-                                </div>
-                            </div>
-                            <div
-                                class="flex items-start hover-lift bg-white/30 dark:bg-darkbg/30 backdrop-blur-md rounded-xl p-6 shadow-lg"
+                            <span class="text-xs text-medblue ml-2"
+                                >4 Jul 2025</span
                             >
-                                <div
-                                    class="bg-lightblue text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-4 shadow-lg"
-                                >
-                                    3
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-semibold mb-2">
-                                        Gain Insights & Improve
-                                    </h3>
-                                    <p class="text-lightblue">
-                                        Review your browsing patterns through
-                                        intuitive charts. See when you're most
-                                        distracted and track your progress over
-                                        time.
-                                    </p>
-                                </div>
-                            </div>
+                            <span class="ml-4 text-medblue"
+                                >Glad you liked it!</span
+                            >
                         </div>
                     </div>
                 </div>
             </section>
-
-            <!-- Testimonials Section -->
-            <section
-                id="testimonials"
-                class="py-20 bg-white/60 dark:bg-darkbg/60 backdrop-blur-md"
-            >
-                <div class="container mx-auto px-6">
-                    <h2
-                        class="text-4xl font-extrabold text-center text-white mb-12 tracking-tight"
-                    >
-                        What Our Users Say
-                    </h2>
-                    <div class="flex justify-center">
-                        <div
-                            class="bg-white/40 dark:bg-darkbg/40 backdrop-blur-md rounded-2xl shadow-2xl p-10 flex flex-col items-center max-w-xl w-full"
-                        >
-                            <div class="text-lightblue text-4xl mb-2">
-                                <i class="fas fa-user-circle"></i>
-                            </div>
-                            <div class="font-bold mb-1 text-xl">Sahil Kale</div>
-                            <div class="flex items-center mb-2">
-                                <span class="text-yellow-400 mr-1 text-lg"
-                                    >★★★★★</span
-                                >
-                                <span class="text-xs text-medblue ml-2"
-                                    >4 Jul 2025</span
-                                >
-                            </div>
-                            <p
-                                class="text-center text-medblue dark:text-lightblue mb-4 text-lg font-medium"
-                            >
-                                "Have been using it since 2 days an mannnn let
-                                me say my procrastination is looong dead. This
-                                worksssssss!!!!!!"
-                            </p>
-                            <div
-                                class="w-full bg-lightblue/10 rounded-xl p-3 mt-2 flex items-center gap-2"
-                            >
-                                <img
-                                    src="https://avatars.githubusercontent.com/u/10270212?v=4"
-                                    alt="Nibodh Daware"
-                                    class="w-8 h-8 rounded-full"
-                                />
-                                <span class="font-bold text-lightblue"
-                                    >Nibodh Daware</span
-                                >
-                                <span
-                                    class="bg-green-200 text-green-800 text-xs px-2 py-1 rounded ml-2"
-                                    >Developer</span
-                                >
-                                <span class="text-xs text-medblue ml-2"
-                                    >4 Jul 2025</span
-                                >
-                                <span class="ml-4 text-medblue"
-                                    >Glad you liked it!</span
-                                >
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Before and After Section -->
-                    <div class="flex justify-center mt-12">
-                        <div
-                            class="flex flex-col md:flex-row items-center gap-8 bg-white/40 dark:bg-darkbg/40 backdrop-blur-md rounded-2xl shadow-xl p-8 max-w-2xl w-full"
-                        >
-                            <div class="flex flex-col items-center flex-1">
-                                <span
-                                    class="text-3xl font-bold text-red-500 mb-2"
-                                    >8.5 hrs</span
-                                >
-                                <span
-                                    class="text-medblue dark:text-lightblue font-semibold mb-2"
-                                    >Before Intentionality</span
-                                >
-                                <div
-                                    class="w-32 h-3 bg-red-200 rounded-full mb-2"
-                                >
-                                    <div
-                                        class="h-3 bg-red-500 rounded-full"
-                                        style="width: 100%"
-                                    ></div>
-                                </div>
-                            </div>
-                            <div class="text-3xl font-bold text-lightblue mx-4">
-                                →
-                            </div>
-                            <div class="flex flex-col items-center flex-1">
-                                <span
-                                    class="text-3xl font-bold text-green-500 mb-2"
-                                    >3 hrs</span
-                                >
-                                <span
-                                    class="text-medblue dark:text-lightblue font-semibold mb-2"
-                                    >After Intentionality</span
-                                >
-                                <div
-                                    class="w-32 h-3 bg-green-200 rounded-full mb-2"
-                                >
-                                    <div
-                                        class="h-3 bg-green-500 rounded-full"
-                                        style="width: 35%"
-                                    ></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- FAQ Section -->
-            <section
-                id="faq"
-                class="py-20 bg-gradient-to-br from-deepblue-start to-deepblue-end text-white"
-            >
-                <div class="container mx-auto px-6">
-                    <h2
-                        class="text-4xl font-extrabold text-center text-white mb-12 tracking-tight"
-                    >
-                        Frequently Asked Questions
-                    </h2>
-                    <div class="max-w-3xl mx-auto space-y-8">
-                        <div>
-                            <h3 class="text-xl font-bold mb-2">
-                                How does Intentionality differ from other
-                                website blockers?
-                            </h3>
-                            <p class="text-lightblue">
-                                Intentionality goes beyond blocking—it makes you
-                                reflect on your purpose, helping you build
-                                lasting habits, not just avoid sites.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2">
-                                Is my data private and secure?
-                            </h3>
-                            <p class="text-lightblue">
-                                Yes. Your data is stored securely and never
-                                sold. You control your information at all times.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2">
-                                Can I use Intentionality on multiple devices?
-                            </h3>
-                            <p class="text-lightblue">
-                                Absolutely! Sync your block list and analytics
-                                across all your Chrome browsers.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2">
-                                What happens if I want to access a blocked site
-                                urgently?
-                            </h3>
-                            <p class="text-lightblue">
-                                You can always proceed after reflecting on your
-                                reason—Intentionality is about mindful choice,
-                                not restriction.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2">
-                                How often are new features added?
-                            </h3>
-                            <p class="text-lightblue">
-                                We're always improving! Premium users get early
-                                access to new features as soon as they're ready.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Final CTA Section -->
-            <section
-                id="get-started"
-                class="py-20 bg-white/60 dark:bg-darkbg/60 backdrop-blur-md"
-            >
-                <div class="container mx-auto px-6 text-center">
-                    <h2
-                        class="text-4xl font-extrabold mb-6 text-deepblue dark:text-lightblue tracking-tight"
-                    >
-                        Take Control of Your Browsing Today
-                    </h2>
-                    <p class="mb-8 text-lg text-medblue dark:text-lightblue">
-                        Join thousands of users who have transformed their
-                        digital habits with Intentionality
-                    </p>
-                    <div
-                        class="flex flex-col md:flex-row gap-4 justify-center mb-4"
-                    >
-                        <a
-                            href="https://chromewebstore.google.com/detail/intentionality/bgmlmjomgakcgkgngpeimmkofpicpbfn"
-                            class="bg-lightblue text-white px-8 py-3 rounded-xl text-lg hover:bg-medblue transition-transform duration-200 hover:scale-105 shadow-lg font-bold"
-                            >Get Intentionality</a
-                        >
-                    </div>
-                </div>
-            </section>
-
-            <!-- Footer -->
-            <footer
-                class="bg-darkbg/80 backdrop-blur-md text-lightblue py-10 rounded-t-2xl shadow-inner mt-20"
-            >
-                <div class="container mx-auto px-6">
-                    <div
-                        class="flex flex-col md:flex-row justify-between items-center"
-                    >
-                        <div class="mb-6 md:mb-0 fade-in">
-                            <div class="text-2xl font-bold text-lightblue">
-                                Intentionality
-                            </div>
-                            <p class="text-lightblue mt-2">
-                                Browse with purpose. Live with intention.
-                            </p>
-                        </div>
-                    </div>
-                    <div
-                        class="border-t border-lightblue mt-8 pt-8 text-center text-lightblue fade-in"
-                    >
-                        <p>&copy; 2025 Intentionality. All rights reserved.</p>
-                    </div>
-                </div>
-            </footer>
-        </main>
-
-        <script>
-            // Intersection Observer for scroll animations
-            const observerOptions = {
-                root: null,
-                rootMargin: "0px",
-                threshold: 0.1,
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                    }
-                });
-            }, observerOptions);
-
-            // Observe all elements with animation classes
-            document
-                .querySelectorAll(
-                    ".fade-in, .slide-in-left, .slide-in-right, .scale-in, .stagger-children",
-                )
-                .forEach((el) => {
-                    observer.observe(el);
-                });
-        </script>
+        </div>
     </body>
 </html>
