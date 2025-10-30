@@ -76,9 +76,50 @@
             <p
                 class="text-gray-600 mb-6 text-center text-base dark:text-gray-300"
             >
-                Sign in with Google to sync your activity and unlock all
-                features.
+                Sign in to sync your activity and unlock all features.
             </p>
+
+            <!-- Email/Password Login Form -->
+            <div id="emailLoginForm" class="w-full mb-4">
+                <input
+                    type="email"
+                    id="emailInput"
+                    placeholder="Email address"
+                    class="w-full px-4 py-2.5 rounded-lg border border-gray-300 mb-3 text-base focus:outline-none focus:border-medblue dark:bg-slate-700 dark:border-slate-600 dark:text-darktext"
+                />
+                <input
+                    type="password"
+                    id="passwordInput"
+                    placeholder="Password"
+                    class="w-full px-4 py-2.5 rounded-lg border border-gray-300 mb-3 text-base focus:outline-none focus:border-medblue dark:bg-slate-700 dark:border-slate-600 dark:text-darktext"
+                />
+                <button
+                    id="loginWithEmailButton"
+                    class="w-full bg-medblue text-white py-2.5 px-4 rounded-lg text-base font-semibold hover:bg-deepblue transition-colors mb-2"
+                >
+                    Sign In
+                </button>
+                <button
+                    id="signupWithEmailButton"
+                    class="w-full bg-lightblue text-white py-2.5 px-4 rounded-lg text-base font-semibold hover:bg-medblue transition-colors mb-2"
+                >
+                    Create Account
+                </button>
+                <button
+                    id="resetPasswordButton"
+                    class="w-full text-medblue text-sm hover:underline dark:text-lightblue mb-3"
+                >
+                    Forgot password?
+                </button>
+            </div>
+
+            <!-- Divider -->
+            <div class="w-full flex items-center gap-3 mb-4">
+                <div class="flex-1 h-px bg-gray-300 dark:bg-slate-600"></div>
+                <span class="text-gray-500 text-sm dark:text-gray-400">or</span>
+                <div class="flex-1 h-px bg-gray-300 dark:bg-slate-600"></div>
+            </div>
+
             <button
                 id="loginWithGoogleButton"
                 class="google-btn w-full flex items-center justify-center gap-3 py-2.5 px-4 rounded-lg text-base mb-4 dark:google-btn-dark"
@@ -243,6 +284,206 @@
                         "Not signed in";
                 }
             });
+
+            // Email/Password Login Handler
+            document.getElementById("loginWithEmailButton").onclick =
+                function () {
+                    const email = document
+                        .getElementById("emailInput")
+                        .value.trim();
+                    const password =
+                        document.getElementById("passwordInput").value;
+
+                    if (!email || !password) {
+                        document.getElementById("loginStatus").textContent =
+                            "❌ Please enter both email and password";
+                        return;
+                    }
+
+                    document.getElementById("loginStatus").textContent =
+                        "Signing in...";
+
+                    firebase
+                        .auth()
+                        .signInWithEmailAndPassword(email, password)
+                        .then((result) => {
+                            document.getElementById(
+                                "loginStatus",
+                            ).textContent = `✅ Login successful! Welcome ${result.user.email}`;
+
+                            // Get Firebase ID token and send to extension
+                            result.user.getIdToken(true).then((token) => {
+                                sendLoginSuccessToExtension(result.user, token);
+                            });
+
+                            // Store user info in sessionStorage
+                            try {
+                                const userInfo = {
+                                    uid: result.user.uid,
+                                    email: result.user.email,
+                                    displayName: result.user.displayName,
+                                    photoURL: result.user.photoURL,
+                                    loginTime: new Date().toISOString(),
+                                };
+                                sessionStorage.setItem(
+                                    "userInfo",
+                                    JSON.stringify(userInfo),
+                                );
+                                sendToExtension(userInfo);
+                            } catch (storageError) {
+                                console.error("Storage error:", storageError);
+                            }
+                        })
+                        .catch((error) => {
+                            let errorMessage = "Login failed";
+                            switch (error.code) {
+                                case "auth/invalid-email":
+                                    errorMessage = "❌ Invalid email address";
+                                    break;
+                                case "auth/user-disabled":
+                                    errorMessage =
+                                        "❌ This account has been disabled";
+                                    break;
+                                case "auth/user-not-found":
+                                    errorMessage =
+                                        "❌ No account found with this email";
+                                    break;
+                                case "auth/wrong-password":
+                                    errorMessage = "❌ Incorrect password";
+                                    break;
+                                case "auth/invalid-credential":
+                                    errorMessage =
+                                        "❌ Invalid email or password";
+                                    break;
+                                default:
+                                    errorMessage = "❌ " + error.message;
+                            }
+                            document.getElementById("loginStatus").textContent =
+                                errorMessage;
+                        });
+                };
+
+            // Email/Password Signup Handler
+            document.getElementById("signupWithEmailButton").onclick =
+                function () {
+                    const email = document
+                        .getElementById("emailInput")
+                        .value.trim();
+                    const password =
+                        document.getElementById("passwordInput").value;
+
+                    if (!email || !password) {
+                        document.getElementById("loginStatus").textContent =
+                            "❌ Please enter both email and password";
+                        return;
+                    }
+
+                    if (password.length < 6) {
+                        document.getElementById("loginStatus").textContent =
+                            "❌ Password must be at least 6 characters";
+                        return;
+                    }
+
+                    document.getElementById("loginStatus").textContent =
+                        "Creating account...";
+
+                    firebase
+                        .auth()
+                        .createUserWithEmailAndPassword(email, password)
+                        .then((result) => {
+                            document.getElementById(
+                                "loginStatus",
+                            ).textContent = `✅ Account created! Welcome ${result.user.email}`;
+
+                            // Get Firebase ID token and send to extension
+                            result.user.getIdToken(true).then((token) => {
+                                sendLoginSuccessToExtension(result.user, token);
+                            });
+
+                            // Store user info in sessionStorage
+                            try {
+                                const userInfo = {
+                                    uid: result.user.uid,
+                                    email: result.user.email,
+                                    displayName: result.user.displayName,
+                                    photoURL: result.user.photoURL,
+                                    loginTime: new Date().toISOString(),
+                                };
+                                sessionStorage.setItem(
+                                    "userInfo",
+                                    JSON.stringify(userInfo),
+                                );
+                                sendToExtension(userInfo);
+                            } catch (storageError) {
+                                console.error("Storage error:", storageError);
+                            }
+                        })
+                        .catch((error) => {
+                            let errorMessage = "Signup failed";
+                            switch (error.code) {
+                                case "auth/email-already-in-use":
+                                    errorMessage =
+                                        "❌ An account with this email already exists";
+                                    break;
+                                case "auth/invalid-email":
+                                    errorMessage = "❌ Invalid email address";
+                                    break;
+                                case "auth/operation-not-allowed":
+                                    errorMessage =
+                                        "❌ Email/password accounts are not enabled";
+                                    break;
+                                case "auth/weak-password":
+                                    errorMessage = "❌ Password is too weak";
+                                    break;
+                                default:
+                                    errorMessage = "❌ " + error.message;
+                            }
+                            document.getElementById("loginStatus").textContent =
+                                errorMessage;
+                        });
+                };
+
+            // Password Reset Handler
+            document.getElementById("resetPasswordButton").onclick =
+                function () {
+                    const email = document
+                        .getElementById("emailInput")
+                        .value.trim();
+
+                    if (!email) {
+                        document.getElementById("loginStatus").textContent =
+                            "❌ Please enter your email address";
+                        return;
+                    }
+
+                    document.getElementById("loginStatus").textContent =
+                        "Sending password reset email...";
+
+                    firebase
+                        .auth()
+                        .sendPasswordResetEmail(email)
+                        .then(() => {
+                            document.getElementById(
+                                "loginStatus",
+                            ).textContent = `✅ Password reset email sent to ${email}`;
+                        })
+                        .catch((error) => {
+                            let errorMessage = "Password reset failed";
+                            switch (error.code) {
+                                case "auth/invalid-email":
+                                    errorMessage = "❌ Invalid email address";
+                                    break;
+                                case "auth/user-not-found":
+                                    errorMessage =
+                                        "❌ No account found with this email";
+                                    break;
+                                default:
+                                    errorMessage = "❌ " + error.message;
+                            }
+                            document.getElementById("loginStatus").textContent =
+                                errorMessage;
+                        });
+                };
 
             // Login button click handler
             document.getElementById("loginWithGoogleButton").onclick =
