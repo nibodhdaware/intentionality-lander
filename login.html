@@ -204,11 +204,11 @@
                             // Store in localStorage as backup
                             localStorage.setItem(
                                 "intentionality_user_login",
-                                JSON.stringify(message.userInfo)
+                                JSON.stringify(message.userInfo),
                             );
                             localStorage.setItem(
                                 "intentionality_auth_token",
-                                message.token
+                                message.token,
                             );
                             console.log("Saved to localStorage");
                             resolve(true);
@@ -216,7 +216,7 @@
                             console.warn("localStorage failed:", error);
                             resolve(false);
                         }
-                    })
+                    }),
                 );
 
                 // 2. Send to content script via postMessage (try multiple origins)
@@ -226,14 +226,14 @@
                             // Send message to be picked up by content script
                             [
                                 window.location.origin,
-                                'https://intentionality.app',
-                                'https://intentionality-1ce65.firebaseapp.com',
-                                'http://localhost:5500',
-                                'http://localhost:3000',
-                                'http://127.0.0.1:5500'
-                            ].forEach(origin => {
+                                "https://intentionality.app",
+                                "https://intentionality-1ce65.firebaseapp.com",
+                                "http://localhost:5500",
+                                "http://localhost:3000",
+                                "http://127.0.0.1:5500",
+                            ].forEach((origin) => {
                                 window.postMessage(message, origin);
-                                console.log('Sent message to:', origin);
+                                console.log("Sent message to:", origin);
                             });
 
                             console.log(
