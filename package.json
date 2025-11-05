@@ -1,0 +1,13 @@
+{
+    "name": "intentionality-lander",
+    "version": "1.0.0",
+    "description": "Landing page for Intentionality",
+    "scripts": {
+        "build:css": "tailwindcss -i ./src/styles.css -o ./dist/output.css",
+        "watch:css": "tailwindcss -i ./src/styles.css -o ./dist/output.css --watch"
+    },
+    "devDependencies": {
+        "@tailwindcss/forms": "^0.5.7",
+        "tailwindcss": "^3.4.18"
+    }
+}
