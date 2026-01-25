@@ -6,13 +6,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { 
   Chrome, 
-  Smartphone, 
   Zap, 
   ShieldCheck, 
   BarChart3, 
   MessageSquareQuote,
   ArrowRight,
-  Play,
   Github,
   CheckCircle2
 } from "lucide-react";
