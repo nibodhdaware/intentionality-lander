@@ -13,8 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Intentionality | Downloads",
-  description: "Get Intentionality on all your devices. Available for Chrome, and coming soon to Android, iOS, and Firefox.",
+  title: {
+    default: "Intentionality",
+    template: "Intentionality | %s",
+  },
+  description: "Take control of your browsing habits. Pause before you scroll. Add Intentionality for mindful, distraction-free browsing.",
   icons: {
     icon: [
       { url: "/iconog.png", type: "image/png" },
