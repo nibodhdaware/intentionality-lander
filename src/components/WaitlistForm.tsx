@@ -32,7 +32,7 @@ export default function WaitlistForm({ platform, className = "", size = 'full' }
     ios: {
       name: 'iOS',
       color: 'slate',
-      icon: <IOSIcon className="h-6 w-6" />,
+      icon: <IOSIcon className="h-6 w-6 text-white" />,
       description: 'Be the first to know when our iOS app is ready'
     },
     firefox: {

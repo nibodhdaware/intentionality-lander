@@ -1,6 +1,5 @@
 "use client";
 
-import React from 'react';
 import Modal from '@/components/ui/modal';
 import WaitlistForm from '@/components/WaitlistForm';
 import AndroidIcon from './icons/AndroidIcon';
@@ -39,7 +38,7 @@ export default function WaitlistModal({ isOpen, onClose, platform }: WaitlistMod
             case 'android':
                 return <AndroidIcon className="h-8 w-8 text-green-400" />;
             case 'ios':
-                return <IOSIcon className="h-8 w-8 text-slate-400" />;
+                return <IOSIcon className="h-8 w-8 text-white" />;
             case 'firefox':
                 return <FirefoxIcon className="h-8 w-8 text-orange-400" />;
             default:
@@ -51,10 +50,9 @@ export default function WaitlistModal({ isOpen, onClose, platform }: WaitlistMod
         switch (platform) {
             case 'android':
                 return 'bg-green-500/20';
-            case 'ios':
-                return 'bg-slate-200/10';
-            case 'firefox':
-                return 'bg-orange-500/20';
+                    case 'ios':
+                        return 'bg-slate-400/20';
+                    case 'firefox':                return 'bg-orange-500/20';
             default:
                 return 'bg-slate-200/10';
         }

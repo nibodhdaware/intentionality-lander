@@ -22,3 +22,6 @@ This document outlines the standing orders for AI agents working on this reposit
 ## 4. Testing
 - **Rule:** Always run `npm test` before concluding a task to ensure no regressions in the UI or API routes.
 - **New Features:** Write corresponding tests in the `__tests__` directory for any new logic or pages.
+
+## 5. Environment & Workflow
+- **Rule:** NEVER attempt to run the development server (e.g., `npm run dev`) or start the production server. The server is already managed and running in the background. Focus strictly on code modifications and testing.
