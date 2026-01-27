@@ -2,7 +2,6 @@ import HomeContent from "./HomeContent";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Home",
   description: "Take control of your browsing habits. Pause before you scroll. Add Intentionality for mindful, distraction-free browsing.",
 };
 

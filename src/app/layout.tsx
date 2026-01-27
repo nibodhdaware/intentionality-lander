@@ -15,10 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://intentionality.app"),
-  title: {
-    default: "Intentionality",
-    template: "Intentionality | %s",
-  },
+  title: "Intentionality",
   description: "Take control of your browsing habits. Pause before you scroll. Add Intentionality for mindful, distraction-free browsing.",
   icons: {
     icon: [

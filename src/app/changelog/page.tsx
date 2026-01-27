@@ -2,7 +2,6 @@ import ChangelogContent from "./ChangelogContent";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Changelog",
   description: "Track the evolution of the Intentionality Chrome Extension as we build the future of mindful browsing.",
 };
 
