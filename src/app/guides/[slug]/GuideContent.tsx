@@ -180,9 +180,9 @@ export default function GuideContent({ guide }: { guide: Guide }) {
                             <span className="font-bold text-white">Intentionality</span>
                         </Link>
                         <div className="flex flex-wrap justify-center gap-8 text-sm text-slate-500">
-                            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-                            <Link href="/changelog" className="hover:text-white transition-colors">Changelog</Link>
-                            <Link href="/report-problem" className="hover:text-white transition-colors">Support</Link>
+                            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+                            <Link href="/changelog" className="hover:text-white transition-colors">View Changelog</Link>
+                            <Link href="/report-problem" className="hover:text-white transition-colors">Contact Support</Link>
                         </div>
                         <p className="text-xs text-slate-600">© 2026 Intentionality. Built with intention.</p>
                     </div>

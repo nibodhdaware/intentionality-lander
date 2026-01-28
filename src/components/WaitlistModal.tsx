@@ -65,9 +65,9 @@ export default function WaitlistModal({ isOpen, onClose, platform }: WaitlistMod
                     {getPlatformIcon(platform)}
                 </div>
 
-                <h2 className="text-2xl font-bold text-white mb-2">
+                <div className="text-2xl font-bold text-white mb-2">
                     {info.title}
-                </h2>
+                </div>
 
                 <p className="text-slate-400 mb-6 text-sm leading-relaxed">
                     {info.description}

@@ -261,7 +261,7 @@ export default function HomeContent() {
                                         <div className={`w-12 h-12 rounded-xl ${feature.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                                             {feature.icon}
                                         </div>
-                                        <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+                                        <div className="text-xl font-bold text-white mb-3">{feature.title}</div>
                                         <p className="text-slate-400 text-sm leading-relaxed">{feature.description}</p>
                                     </CardContent>
                                 </Card>
@@ -344,7 +344,7 @@ export default function HomeContent() {
                                         </ul>
                                         <Button asChild className="bg-sky-500 hover:bg-sky-600 text-white font-bold h-12 px-8 rounded-xl shadow-lg shadow-sky-500/20">
                                             <a href="https://chromewebstore.google.com/detail/intentionality/bgmlmjomgakcgkgngpeimmkofpicpbfn" target="_blank" rel="noopener noreferrer">
-                                                Add to Chrome
+                                                Get the extension
                                             </a>
                                         </Button>
                                     </div>
@@ -536,7 +536,7 @@ export default function HomeContent() {
                                             <span className="text-red-400 font-bold">1</span>
                                         </div>
                                         <div>
-                                            <h4 className="text-white font-bold">The Trigger</h4>
+                                            <div className="text-white font-bold">The Trigger</div>
                                             <p className="text-slate-400 text-sm">You feel bored or anxious.</p>
                                         </div>
                                     </div>
@@ -548,7 +548,7 @@ export default function HomeContent() {
                                             <span className="text-slate-400 font-bold">2</span>
                                         </div>
                                         <div>
-                                            <h4 className="text-slate-300 font-bold line-through decoration-red-500/50">The Routine</h4>
+                                            <div className="text-slate-300 font-bold line-through decoration-red-500/50">The Routine</div>
                                             <p className="text-slate-500 text-sm">Mindlessly opening a social app.</p>
                                         </div>
                                     </div>
@@ -563,7 +563,7 @@ export default function HomeContent() {
                                             <CheckCircle2 className="h-5 w-5 text-sky-400" />
                                         </div>
                                         <div>
-                                            <h4 className="text-white font-bold">The New Reward</h4>
+                                            <div className="text-white font-bold">The New Reward</div>
                                             <p className="text-slate-400 text-sm">Pride in staying focused and in control.</p>
                                         </div>
                                     </div>
@@ -682,10 +682,10 @@ export default function HomeContent() {
                                 <Link href={`/guides/${guide.slug}`}>
                                     <Card className="h-full bg-white/5 border-white/10 hover:border-sky-500/30 transition-all hover:bg-white/[0.07] group">
                                         <CardContent className="p-6">
-                                            <h3 className="text-lg font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">{guide.title}</h3>
+                                            <div className="text-lg font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">{guide.title}</div>
                                             <p className="text-slate-400 text-sm mb-4">{guide.desc}</p>
                                             <div className="flex items-center text-sky-400 text-xs font-bold uppercase tracking-wider">
-                                                Read Guide <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" />
+                                                Read {guide.title} <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" />
                                             </div>
                                         </CardContent>
                                     </Card>
@@ -754,9 +754,9 @@ export default function HomeContent() {
                             <span className="font-bold text-white">Intentionality</span>
                         </div>
                         <div className="flex flex-wrap justify-center gap-8 text-sm text-slate-500">
-                            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-                            <Link href="/changelog" className="hover:text-white transition-colors">Changelog</Link>
-                            <Link href="/report-problem" className="hover:text-white transition-colors">Support</Link>
+                            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+                            <Link href="/changelog" className="hover:text-white transition-colors">View Changelog</Link>
+                            <Link href="/report-problem" className="hover:text-white transition-colors">Contact Support</Link>
                             <a href="https://github.com/nibodhdaware" className="hover:text-white transition-colors flex items-center gap-1">
                                 <Github className="h-4 w-4" /> Github
                             </a>

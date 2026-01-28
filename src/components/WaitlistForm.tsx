@@ -134,7 +134,7 @@ export default function WaitlistForm({ platform, className = "", size = 'full' }
             {info.icon}
           </div>
           <div className="text-left">
-            <h3 className="text-xl font-bold text-white">Join the {info.name} Waitlist</h3>
+            <div className="text-xl font-bold text-white">Join the {info.name} Waitlist</div>
             <p className="text-slate-400 text-sm">{info.description}</p>
           </div>
         </div>
@@ -148,7 +148,7 @@ export default function WaitlistForm({ platform, className = "", size = 'full' }
             <div className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <CheckCircle2 className="h-8 w-8 text-emerald-400" />
             </div>
-            <h4 className="text-lg font-semibold text-white mb-2">You're on the list!</h4>
+            <div className="text-lg font-semibold text-white mb-2">You're on the list!</div>
             <p className="text-slate-400">
               We'll notify you as soon as the {info.name} version is ready.
             </p>
