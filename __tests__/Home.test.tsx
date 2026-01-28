@@ -18,6 +18,7 @@ jest.mock('framer-motion', () => ({
   },
   useScroll: () => ({ scrollYProgress: 0 }),
   useTransform: () => 0,
+  useInView: () => true,
   AnimatePresence: ({ children }: any) => <>{children}</>,
 }))
 

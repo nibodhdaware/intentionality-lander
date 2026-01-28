@@ -18,6 +18,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion";
 import { initAnalytics } from "@/lib/firebase";
 import WaitlistModal from "@/components/WaitlistModal";
 import FirefoxIcon from "@/components/icons/FirefoxIcon";
@@ -150,7 +156,7 @@ export default function HomeContent() {
                             Browse with <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">Intention</span>,<br />Not Impulse.
                         </h1>
                         <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 mb-10 leading-relaxed">
-                            Break the cycle of mindless scrolling. Intentionality prompts you to pause and reflect on your digital habits across all your devices.
+                            Break the cycle of mindless scrolling and learn to <span className="text-slate-200 font-medium">browse</span> with purpose. <span className="text-slate-200 font-medium">Intentionality</span> empowers you to overcome the immediate <span className="text-slate-200 font-medium">impulse</span> for distraction by prompting you to pause and reflect on your digital habits.
                         </p>
                         <div className="flex flex-col items-center justify-center gap-6">
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 flex-wrap">
@@ -495,6 +501,133 @@ export default function HomeContent() {
                             </motion.div>
                         ))}
                     </div>
+                </div>
+            </section>
+
+            {/* The Science Section */}
+            <section className="py-24">
+                <div className="container mx-auto px-6">
+                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                        <div>
+                            <Badge variant="outline" className="mb-6 border-indigo-500/30 text-indigo-400 bg-indigo-500/5 px-4 py-1">
+                                The Science
+                            </Badge>
+                            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                                Why we <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">doomscroll</span>
+                            </h2>
+                            <div className="space-y-6 text-slate-400 text-lg leading-relaxed">
+                                <p>
+                                    It is not a lack of willpower; it is biology. Modern applications are ingeniously designed to trigger <strong>dopamine loops</strong> that keep us hooked. Every time you open a distracting app, your brain receives a small, immediate reward.
+                                </p>
+                                <p>
+                                    Intentionality disrupts this loop by introducing a <strong>&quot;micro-friction&quot;</strong>—a moment of pause. This brief interruption allows your prefrontal cortex (the logical part of your brain) to catch up with your basal ganglia (the habit part).
+                                </p>
+                                <p>
+                                    This gives you the agency to choose: <em>&quot;Do I really want to be here right now?&quot;</em> This simple act of conscious choice rewires your brain over time to seek <strong>intention</strong> rather than <strong>impulse</strong>.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="relative">
+                            <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 to-indigo-500/10 blur-[100px] rounded-full pointer-events-none" />
+                            <div className="relative bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm">
+                                <div className="space-y-4">
+                                    <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl border border-white/5">
+                                        <div className="h-10 w-10 rounded-full bg-red-500/20 flex items-center justify-center">
+                                            <span className="text-red-400 font-bold">1</span>
+                                        </div>
+                                        <div>
+                                            <h4 className="text-white font-bold">The Trigger</h4>
+                                            <p className="text-slate-400 text-sm">You feel bored or anxious.</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex justify-center">
+                                        <ArrowRight className="text-slate-600 rotate-90" />
+                                    </div>
+                                    <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl border border-white/5 opacity-50">
+                                        <div className="h-10 w-10 rounded-full bg-slate-500/20 flex items-center justify-center">
+                                            <span className="text-slate-400 font-bold">2</span>
+                                        </div>
+                                        <div>
+                                            <h4 className="text-slate-300 font-bold line-through decoration-red-500/50">The Routine</h4>
+                                            <p className="text-slate-500 text-sm">Mindlessly opening a social app.</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex justify-center relative">
+                                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#0f1a2a] px-3 py-1 border border-sky-500/30 rounded-full text-sky-400 text-xs font-bold z-10">
+                                            INTENTIONALITY INTERVENES
+                                        </div>
+                                        <ArrowRight className="text-sky-500 rotate-90" />
+                                    </div>
+                                    <div className="flex items-center gap-4 p-4 bg-sky-500/10 rounded-xl border border-sky-500/20">
+                                        <div className="h-10 w-10 rounded-full bg-sky-500/20 flex items-center justify-center">
+                                            <CheckCircle2 className="h-5 w-5 text-sky-400" />
+                                        </div>
+                                        <div>
+                                            <h4 className="text-white font-bold">The New Reward</h4>
+                                            <p className="text-slate-400 text-sm">Pride in staying focused and in control.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="py-24 bg-white/[0.02]">
+                <div className="container mx-auto px-6 max-w-4xl">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+                        <p className="text-slate-400">Everything you need to know about reclaiming your digital attention.</p>
+                    </div>
+
+                    <Accordion type="single" collapsible className="w-full space-y-4">
+                        <AccordionItem value="item-1" className="border border-white/10 rounded-xl px-6 bg-white/5 data-[state=open]:border-sky-500/30 transition-colors">
+                            <AccordionTrigger className="text-white hover:text-sky-400 hover:no-underline text-lg">
+                                How does Intentionality actually work?
+                            </AccordionTrigger>
+                            <AccordionContent className="text-slate-300 text-base leading-relaxed pb-6">
+                                It works by intercepting your request to visit a website you&apos;ve marked as distracting. Instead of loading the site immediately, it displays a calm, beautiful screen asking you to type your intention (e.g., &quot;I need to check a message&quot;). This 5-second pause breaks the automatic habit loop and gives you control back.
+                            </AccordionContent>
+                        </AccordionItem>
+
+                        <AccordionItem value="item-2" className="border border-white/10 rounded-xl px-6 bg-white/5 data-[state=open]:border-sky-500/30 transition-colors">
+                            <AccordionTrigger className="text-white hover:text-sky-400 hover:no-underline text-lg">
+                                Is my browsing history private?
+                            </AccordionTrigger>
+                            <AccordionContent className="text-slate-300 text-base leading-relaxed pb-6">
+                                Absolutely. Privacy is our core value. Intentionality operates locally on your device. We do not track the websites you visit, sell your data to advertisers, or upload your browsing history to the cloud. The only data that leaves your device is anonymous aggregated usage statistics (like &quot;1 intentional visit logged&quot;) to help us improve the product, and even this is minimal.
+                            </AccordionContent>
+                        </AccordionItem>
+
+                        <AccordionItem value="item-3" className="border border-white/10 rounded-xl px-6 bg-white/5 data-[state=open]:border-sky-500/30 transition-colors">
+                            <AccordionTrigger className="text-white hover:text-sky-400 hover:no-underline text-lg">
+                                Does it really help with procrastination?
+                            </AccordionTrigger>
+                            <AccordionContent className="text-slate-300 text-base leading-relaxed pb-6">
+                                Yes. Our users report a significant reduction in mindless browsing within the first week. By requiring you to articulate <em>why</em> you are visiting a site, you often realize you didn&apos;t actually have a clear reason, leading you to close the tab and return to your productive work.
+                            </AccordionContent>
+                        </AccordionItem>
+
+                        <AccordionItem value="item-4" className="border border-white/10 rounded-xl px-6 bg-white/5 data-[state=open]:border-sky-500/30 transition-colors">
+                            <AccordionTrigger className="text-white hover:text-sky-400 hover:no-underline text-lg">
+                                Can I use it on my phone?
+                            </AccordionTrigger>
+                            <AccordionContent className="text-slate-300 text-base leading-relaxed pb-6">
+                                We are actively developing our mobile applications! We have an Android version in testing (you can join the waitlist above) and an iOS version in development. We believe the principles of intentional browsing are even more critical on mobile devices where notifications constantly vie for our attention.
+                            </AccordionContent>
+                        </AccordionItem>
+
+                        <AccordionItem value="item-5" className="border border-white/10 rounded-xl px-6 bg-white/5 data-[state=open]:border-sky-500/30 transition-colors">
+                            <AccordionTrigger className="text-white hover:text-sky-400 hover:no-underline text-lg">
+                                Is it free to use?
+                            </AccordionTrigger>
+                            <AccordionContent className="text-slate-300 text-base leading-relaxed pb-6">
+                                The core features of Intentionality are free to use. We believe everyone deserves the tools to reclaim their attention. We may introduce premium features for advanced analytics, team syncing, and multi-device cloud backup in the future, but the essential blocking and prompting tools will remain accessible.
+                            </AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
                 </div>
             </section>
 

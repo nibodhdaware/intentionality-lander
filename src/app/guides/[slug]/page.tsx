@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${guide.title} | Intentionality`,
+    title: guide.title,
     description: guide.description,
     keywords: guide.keywords.join(", "),
     openGraph: {

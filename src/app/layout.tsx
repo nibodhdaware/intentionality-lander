@@ -15,7 +15,13 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://intentionality.app"),
-  title: "Intentionality",
+  alternates: {
+    canonical: "/",
+  },
+  title: {
+    default: "Intentionality | Stop Mindless Scrolling & Reclaim Your Focus",
+    template: "%s | Intentionality",
+  },
   description: "Take control of your browsing habits. Pause before you scroll. Add Intentionality for mindful, distraction-free browsing.",
   other: {
     "ai-content": "https://intentionality.app/llms.txt",
@@ -28,7 +34,7 @@ export const metadata: Metadata = {
     apple: "/iconog.png",
   },
   openGraph: {
-    title: "Intentionality",
+    title: "Intentionality | Stop Mindless Scrolling & Reclaim Your Focus",
     description: "Take control of your browsing habits. Pause before you scroll.",
     url: "https://intentionality.app/",
     siteName: "Intentionality",
