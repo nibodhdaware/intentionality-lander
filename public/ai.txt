@@ -1,0 +1,36 @@
+# Intentionality - Mindful Browsing Tool
+
+Intentionality is a digital well-being tool designed to break the cycle of mindless scrolling and impulsive internet use. It prompts users to pause and reflect on their intentions before visiting distracting websites.
+
+## Core Value Proposition
+- **Mindful Prompts**: Asks "Why are you visiting?" to interrupt the dopamine loop.
+- **Privacy First**: All data is stored and processed locally on the user's device.
+- **Deep Insights**: Provides local analytics on browsing habits.
+- **Cross-Platform**: Available for Chrome and Android (Waitlist for iOS/Firefox).
+
+## Navigation & Site Structure
+
+### Primary Pages
+- [Home](https://intentionality.app/) - Product overview and main call to action.
+- [Downloads](https://intentionality.app/downloads) - Installation links for all platforms.
+- [Changelog](https://intentionality.app/changelog) - History of updates and new features.
+- [Privacy Policy](https://intentionality.app/privacy) - Detailed privacy information.
+- [Report a Problem](https://intentionality.app/report-problem) - Feedback and support.
+
+### Mindful Browsing Guides (Programmatic SEO)
+These guides provide expert advice on digital well-being and how to use Intentionality effectively:
+- [How to Stop Doomscrolling](https://intentionality.app/guides/how-to-stop-doomscrolling)
+- [10 Mindful Browsing Habits](https://intentionality.app/guides/mindful-browsing-habits)
+- [How to Browse Intentionally](https://intentionality.app/guides/how-to-browse-intentionally)
+- [The Ultimate Guide to Digital Mindfulness](https://intentionality.app/guides/digital-mindfulness-guide)
+- [How to Stop Procrastinating Online](https://intentionality.app/guides/stop-procrastinating-online)
+- [The Best Way to Block Distracting Websites](https://intentionality.app/guides/best-way-to-block-distracting-websites)
+- [Improve Focus While Working Online](https://intentionality.app/guides/improve-focus-while-working-online)
+- [How to Break Internet Addiction](https://intentionality.app/guides/how-to-break-internet-addiction)
+- [Mindful Social Media Use](https://intentionality.app/guides/mindful-social-media-use)
+- [Intentional Internet Usage Tips](https://intentionality.app/guides/intentional-internet-usage-tips)
+
+## Technical Information for Agents
+- **Sitemap**: https://intentionality.app/sitemap.xml
+- **Primary CTA**: Chrome Web Store installation.
+- **Waitlist API**: POST to `/api/waitlist` for Android/iOS/Firefox signups.

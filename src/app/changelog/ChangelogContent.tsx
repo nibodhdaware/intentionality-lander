@@ -21,25 +21,35 @@ import Image from "next/image";
 export default function ChangelogContent() {
   const versions = [
     {
-      version: "1.6.1",
+      version: "1.6.2",
       status: "Latest",
-      date: "January 27, 2026",
+      date: "January 28, 2026",
       icon: <Sparkles className="h-5 w-5 text-sky-400" />,
       tagColor: "bg-sky-500",
-      summary: "Refined UI elements and improved developer documentation.",
+      summary: "Programmatic SEO and Agent-friendliness update.",
       sections: [
+        {
+          title: "Features",
+          icon: <Sparkles className="h-4 w-4 text-amber-400" />,
+          items: [
+            "Implemented 10 specialized mindful browsing guides for programmatic SEO.",
+            "Added dynamic sitemap.ts for automated search engine indexing.",
+            "Introduced llms.txt and ai.txt for AI agent discoverability and navigation."
+          ]
+        },
         {
           title: "Improvements",
           icon: <Wrench className="h-4 w-4 text-emerald-400" />,
           items: [
-            "Enhanced iOS icon visibility in waitlist modals for better accessibility on dark backgrounds.",
-            "Updated internal agent documentation for improved development workflow."
+            "Standardized application metadata and canonical URLs to intentionality.app.",
+            "Added JSON-LD Article schema to all guide pages for enhanced search snippets.",
+            "Integrated 'Mindful Browsing Resources' discovery section on the landing page."
           ]
         }
       ]
     },
     {
-      version: "1.6.0",
+      version: "1.6.1",
       status: "Previous",
       date: "November 5, 2025",
       icon: <Rocket className="h-5 w-5 text-sky-400" />,

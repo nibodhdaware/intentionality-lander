@@ -144,7 +144,7 @@ export default function HomeContent() {
                         </motion.div>
 
                         <Badge variant="outline" className="mb-6 border-sky-500/30 text-sky-400 bg-sky-500/5 px-4 py-1">
-                            v1.6.1 is now available for Chrome & Android
+                            v1.6.2 is now available for Chrome & Android
                         </Badge>
                         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]">
                             Browse with <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">Intention</span>,<br />Not Impulse.
@@ -494,6 +494,76 @@ export default function HomeContent() {
                                 </Card>
                             </motion.div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Resources Section */}
+            <section className="py-24">
+                <div className="container mx-auto px-6">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Mindful Browsing Resources</h2>
+                        <p className="text-slate-400 max-w-2xl mx-auto">Expert guides to help you regain control of your digital life and build better internet habits.</p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {[
+                            {
+                                slug: "how-to-stop-doomscrolling",
+                                title: "How to Stop Doomscrolling",
+                                desc: "Effective strategies to break the cycle of doomscrolling."
+                            },
+                            {
+                                slug: "mindful-browsing-habits",
+                                title: "10 Mindful Browsing Habits",
+                                desc: "Transform your relationship with technology."
+                            },
+                            {
+                                slug: "how-to-browse-intentionally",
+                                title: "Browse Intentionally",
+                                desc: "Reclaim your attention in an attention economy."
+                            },
+                            {
+                                slug: "stop-procrastinating-online",
+                                title: "Stop Procrastinating Online",
+                                desc: "Beat online procrastination with these proven tips."
+                            },
+                            {
+                                slug: "best-way-to-block-distracting-websites",
+                                title: "Blocking Distracting Websites",
+                                desc: "A better way to manage digital distractions."
+                            },
+                            {
+                                slug: "digital-mindfulness-guide",
+                                title: "Digital Mindfulness Guide",
+                                desc: "Stay sane in a hyper-connected world."
+                            }
+                        ].map((guide, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.05 }}
+                            >
+                                <Link href={`/guides/${guide.slug}`}>
+                                    <Card className="h-full bg-white/5 border-white/10 hover:border-sky-500/30 transition-all hover:bg-white/[0.07] group">
+                                        <CardContent className="p-6">
+                                            <h3 className="text-lg font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">{guide.title}</h3>
+                                            <p className="text-slate-400 text-sm mb-4">{guide.desc}</p>
+                                            <div className="flex items-center text-sky-400 text-xs font-bold uppercase tracking-wider">
+                                                Read Guide <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" />
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                </Link>
+                            </motion.div>
+                        ))}
+                    </div>
+                    <div className="mt-12 text-center">
+                        <Link href="/guides/intentional-internet-usage-tips" className="text-slate-400 hover:text-white transition-colors text-sm font-medium">
+                            View all guides and resources
+                        </Link>
                     </div>
                 </div>
             </section>

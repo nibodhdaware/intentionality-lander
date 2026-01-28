@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://intentionality.app"),
   title: "Intentionality",
   description: "Take control of your browsing habits. Pause before you scroll. Add Intentionality for mindful, distraction-free browsing.",
+  other: {
+    "ai-content": "https://intentionality.app/llms.txt",
+  },
   icons: {
     icon: [
       { url: "/iconog.png", type: "image/png" },
@@ -49,6 +52,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <link rel="icon" href="/iconog.png" />
+        <link rel="help" href="/llms.txt" type="text/plain" title="AI Agent Guide" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0f1a2a]`}
