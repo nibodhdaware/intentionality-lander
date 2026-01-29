@@ -59,6 +59,12 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/iconog.png" />
         <link rel="help" href="/llms.txt" type="text/plain" title="AI Agent Guide" />
+        <script
+          defer
+          data-website-id="dfid_nxDCF3qkroOrl6p5DJTsL"
+          data-domain="intentionality.app"
+          src="https://datafa.st/js/script.js"
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0f1a2a]`}
