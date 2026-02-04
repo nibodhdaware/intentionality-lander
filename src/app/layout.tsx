@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, DM_Serif_Text } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
@@ -10,6 +10,12 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const dmSerifText = DM_Serif_Text({
+  weight: ["400"],
+  variable: "--font-dm-serif",
   subsets: ["latin"],
 });
 
@@ -67,7 +73,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0f1a2a]`}
+        className={`${geistSans.variable} ${geistMono.variable} ${dmSerifText.variable} antialiased bg-[#0f1a2a]`}
       >
         {children}
         <Analytics />
