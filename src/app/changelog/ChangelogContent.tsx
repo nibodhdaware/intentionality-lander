@@ -21,8 +21,27 @@ import Image from "next/image";
 export default function ChangelogContent() {
   const versions = [
     {
-      version: "1.6.2",
+      version: "1.6.3",
       status: "Latest",
+      date: "February 5, 2026",
+      icon: <Sparkles className="h-5 w-5 text-indigo-400" />,
+      tagColor: "bg-indigo-500",
+      summary: "Visual refinement and typography update for better readability and brand aesthetics.",
+      sections: [
+        {
+          title: "UI Updates",
+          icon: <Wrench className="h-4 w-4 text-emerald-400" />,
+          items: [
+            "Refined global typography: switched body text to Geist Sans for better readability.",
+            "Updated headings to use DM Serif Text for a more premium, editorial feel.",
+            "Cleaned up experimental design routes."
+          ]
+        }
+      ]
+    },
+    {
+      version: "1.6.2",
+      status: "Previous",
       date: "January 28, 2026",
       icon: <Sparkles className="h-5 w-5 text-sky-400" />,
       tagColor: "bg-sky-500",
