@@ -3,6 +3,20 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "Learn about how Intentionality handles your data. We prioritize your privacy and focus on keeping your data secure.",
+  alternates: {
+    canonical: "/privacy",
+  },
+  openGraph: {
+    title: "Privacy Policy | Intentionality",
+    description: "Learn about how Intentionality handles your data. We prioritize your privacy and focus on keeping your data secure.",
+    url: "https://intentionality.app/privacy",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | Intentionality",
+    description: "Learn about how Intentionality handles your data. We prioritize your privacy and focus on keeping your data secure.",
+  },
 };
 
 export default function Privacy() {

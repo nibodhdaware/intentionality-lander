@@ -18,11 +18,11 @@ export const guides: Guide[] = [
   {
     slug: "how-to-stop-doomscrolling",
     title: "How to Stop Doomscrolling: 8 Science-Backed Strategies for Mindful Browsing",
-    description: "Discover proven strategies to break the doomscrolling habit, understand the psychology behind endless scrolling, and reclaim your digital well-being with actionable tips.",
+    description: "Learn how to stop doomscrolling with practical, science-backed steps that break scrolling loops and build mindful browsing habits.",
     keywords: ["stop doomscrolling", "mindful browsing", "break internet addiction", "digital well-being", "doom scrolling cure", "stop scrolling social media", "break scrolling habit", "digital detox tips"],
     content: {
       heading: "How to Stop Doomscrolling: Your Complete Guide to Breaking the Cycle",
-      introduction: "Doomscrolling—the compulsive act of endlessly scrolling through negative news and social media despite the emotional toll—affects over 73% of internet users according to recent studies. This behavior hijacks your brain's reward system, leaving you feeling anxious, drained, and unable to stop. The good news? With the right strategies and tools, you can break free from this cycle and reclaim your mental peace.",
+      introduction: "If you're searching for how to stop doomscrolling, start with one truth: the habit is designed, not accidental. Doomscrolling—the compulsive act of endlessly scrolling through negative news and social media despite the emotional toll—affects over 73% of internet users according to recent studies. This behavior hijacks your brain's reward system, leaving you feeling anxious, drained, and unable to stop. The good news? With the right strategies and tools, you can break free from this cycle and reclaim your mental peace.",
       sections: [
         {
           title: "Understanding Why Doomscrolling Is So Addictive",
@@ -219,8 +219,8 @@ export const guides: Guide[] = [
   {
     slug: "best-way-to-block-distracting-websites",
     title: "The Best Way to Block Distracting Websites (That Actually Works)",
-    description: "Blocking websites isn't enough if you just uninstall the blocker. Learn why 'soft blocking' and friction-based methods are superior for long-term focus.",
-    keywords: ["block websites", "focus app", "distraction free", "internet blocker", "self control app", "website blocker chrome", "focus tools"],
+    description: "Looking to block distracting websites without rebound scrolling? Learn why friction-based blockers work better and how to choose the right website blocker extension.",
+    keywords: ["block distracting websites", "website blocker extension", "chrome extension to stop distractions", "focus app", "distraction free", "internet blocker", "self control app", "website blocker chrome", "focus tools"],
     content: {
       heading: "Beyond Brute Force: A Smarter Way to Block Distractions",
       introduction: "We've all been there: you install a hardcore website blocker, feel productive for two hours, and then disable it in a moment of weakness because you 'need' to check something. Brute-force blocking often fails because it acts like a strict parent, inviting rebellion. The most effective blocking strategy isn't about restriction; it's about friction and mindfulness.",
@@ -244,6 +244,10 @@ export const guides: Guide[] = [
         {
           title: "Layered Defense Strategy",
           content: "Don't rely on one tool. Use a DNS blocker (like NextDNS) for high-level filtering of ads and gambling sites. Use a browser extension for mindful friction on social media. Use your phone's 'Do Not Disturb' mode for notification management. A layered defense catches what individual tools miss."
+        },
+        {
+          title: "Compare Website Blockers Before Installing",
+          content: "If your goal is to block distracting websites consistently, compare tools by behavior model, not just by feature count. Hard blockers can enforce short sprints, while prompt-based blockers build long-term discipline. Before choosing a website blocker extension, test whether it helps you pause and decide intentionally rather than simply forcing lockouts."
         }
       ],
       conclusion: "The best blocker is the one that helps you build internal discipline, not just external walls. By adding friction and requiring intention, you can navigate the web safely without cutting yourself off from it completely."

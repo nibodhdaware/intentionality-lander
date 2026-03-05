@@ -169,6 +169,26 @@ export default function GuideContent({ guide }: { guide: Guide }) {
                 </div>
             </section>
 
+            <section className="py-14">
+                <div className="container mx-auto px-6 max-w-4xl">
+                    <h2 className="text-2xl font-bold text-white mb-4">Continue reading</h2>
+                    <div className="flex flex-wrap gap-4 text-sm">
+                        <Link href="/guides/how-to-stop-doomscrolling" className="text-sky-400 hover:text-sky-300">
+                            How to stop doomscrolling
+                        </Link>
+                        <Link href="/guides/best-way-to-block-distracting-websites" className="text-sky-400 hover:text-sky-300">
+                            Block distracting websites
+                        </Link>
+                        <Link href="/chrome-extension-to-stop-distractions" className="text-sky-400 hover:text-sky-300">
+                            Chrome extension to stop distractions
+                        </Link>
+                        <Link href="/compare/best-app-to-stop-doomscrolling" className="text-sky-400 hover:text-sky-300">
+                            Best app to stop doomscrolling
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
             {/* Footer */}
             <footer className="py-12 border-t border-white/5">
                 <div className="container mx-auto px-6">

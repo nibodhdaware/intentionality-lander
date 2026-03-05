@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import posthog from "posthog-js";
 import { 
   Chrome, 
   ArrowLeft,
@@ -27,6 +28,10 @@ export default function DownloadsContent() {
 
   const closeWaitlistModal = () => {
     setWaitlistModal(prev => ({ ...prev, isOpen: false }));
+  };
+
+  const trackDownloadEvent = (type: "install_click" | "waitlist_click", placement: string) => {
+    posthog.capture(type, { placement, source: "downloads" });
   };
 
   const platforms = [
@@ -73,7 +78,7 @@ export default function DownloadsContent() {
     },
     {
       name: "Firefox Add-on",
-      status: "Coming Soon",
+      status: "Available",
       description: "Privacy-focused extension for Firefox users. Built with the same core intentionality logic.",
       icon: <svg className="h-8 w-8 text-orange-400" viewBox="0 0 256 265" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
         <path fill="currentColor" d="M248.033 88.713c-5.569-13.399-16.864-27.866-25.71-32.439a133.169 133.169 0 0 1 12.979 38.9l.023.215c-14.49-36.126-39.062-50.692-59.13-82.41a155.1 155.1 0 0 1-3.019-4.907 40.605 40.605 0 0 1-1.412-2.645 23.31 23.31 0 0 1-1.912-5.076.331.331 0 0 0-.291-.331.469.469 0 0 0-.241 0c-.016 0-.043.03-.063.037-.02.006-.063.036-.092.049l.049-.086c-32.19 18.849-43.113 53.741-44.118 71.194a64.108 64.108 0 0 0-35.269 13.593 38.336 38.336 0 0 0-3.307-2.506 59.417 59.417 0 0 1-.36-31.324 94.912 94.912 0 0 0-30.848 23.841h-.06c-5.079-6.438-4.722-27.667-4.431-32.102a22.957 22.957 0 0 0-4.279 2.272 93.435 93.435 0 0 0-12.526 10.73 111.954 111.954 0 0 0-11.98 14.375v.019-.023A108.26 108.26 0 0 0 4.841 108.92l-.171.846a203.818 203.818 0 0 0-1.26 8.003c0 .096-.02.185-.03.281a122.12 122.12 0 0 0-2.08 17.667v.662c.086 98.661 106.944 160.23 192.344 110.825a128.165 128.165 0 0 0 62.12-89.153c.215-1.653.39-3.29.582-4.96a131.8 131.8 0 0 0-8.313-64.378ZM100.322 189.031c.599.288 1.161.599 1.776.873l.089.057a68.838 68.838 0 0 1-1.865-.93Zm29.357-77.297Zm105.656-16.315v-.123l.023.136-.023-.013Z" />
@@ -81,16 +86,36 @@ export default function DownloadsContent() {
         <path fill="currentColor" d="M83.852 80.545a81.51 81.51 0 0 1 2.645 1.756 59.407 59.407 0 0 1-.36-31.324 94.926 94.926 0 0 0-30.849 23.841c.625-.017 19.216-.351 28.564 5.727Z" />
         <path fill="currentColor" d="M2.471 139.411c9.89 58.443 62.857 103.063 122.989 104.766 55.652 1.574 91.205-30.732 105.894-62.248a116.067 116.067 0 0 0 3.988-86.497v-.122c0-.096-.02-.153 0-.123l.023.215c4.547 29.684-10.552 58.443-34.155 77.889l-.073.166c-45.989 37.455-90.002 22.598-98.91 16.533a64.67 64.67 0 0 1-1.865-.929c-26.814-12.817-37.891-37.247-35.517-58.198a32.912 32.912 0 0 1-30.359-19.096 48.336 48.336 0 0 1 47.117-1.891 63.821 63.821 0 0 0 48.119 1.891c-.049-1.042-22.353-9.92-31.05-18.484-4.646-4.58-6.851-6.786-8.805-8.442a38.145 38.145 0 0 0-3.307-2.507c-.761-.519-1.617-1.081-2.645-1.756-9.348-6.078-27.939-5.744-28.554-5.727h-.059c-5.079-6.438-4.722-27.667-4.431-32.101a22.862 22.862 0 0 0-4.279 2.271 93.373 93.373 0 0 0-12.526 10.73 112.062 112.062 0 0 0-12.03 14.342v.019-.023A108.26 108.26 0 0 0 4.841 108.92c-.062.261-4.616 20.167-2.37 30.491Z" />
       </svg>,
-      link: "#",
-      buttonText: "Join Waitlist",
+      link: "https://addons.mozilla.org/en-GB/firefox/addon/intentionality/",
+      buttonText: "Add to Firefox",
       available: true,
-      isWaitlist: true,
+      isWaitlist: false,
       platform: 'firefox'
     }
   ];
 
+  const softwareSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Intentionality",
+    applicationCategory: "BrowserApplication",
+    operatingSystem: "Chrome, Firefox",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    downloadUrl: "https://chromewebstore.google.com/detail/intentionality/bgmlmjomgakcgkgngpeimmkofpicpbfn",
+    description:
+      "Mindful browsing extension that adds friction prompts to reduce distracting website visits.",
+  };
+
   return (
     <div className="min-h-screen bg-[#0f1a2a] text-slate-200 selection:bg-sky-500/30">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
       {/* Background Glow */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[20%] w-[60%] h-[40%] bg-sky-500/10 blur-[120px] rounded-full" />
@@ -116,7 +141,7 @@ export default function DownloadsContent() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tighter">Download Intentionality</h1>
+          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tighter">Download Intentionality Extension</h1>
           <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
             Choose your platform and start building a more intentional relationship with your digital world.
           </p>
@@ -147,14 +172,17 @@ export default function DownloadsContent() {
                   
                   {platform.available && !platform.isWaitlist ? (
                     <Button asChild className="w-full bg-sky-500 hover:bg-sky-600 text-white font-bold h-12 rounded-xl shadow-lg shadow-sky-500/20 transition-all active:scale-95">
-                      <a href={platform.link} target="_blank" rel="noopener noreferrer">
+                      <a href={platform.link} target="_blank" rel="noopener noreferrer" onClick={() => trackDownloadEvent("install_click", platform.platform)}>
                         <Download className="mr-2 h-4 w-4" />
                         {platform.buttonText}
                       </a>
                     </Button>
                   ) : platform.isWaitlist ? (
                     <Button 
-                      onClick={() => openWaitlistModal(platform.platform as 'android' | 'ios' | 'firefox')} 
+                      onClick={() => {
+                        trackDownloadEvent("waitlist_click", platform.platform);
+                        openWaitlistModal(platform.platform as 'android' | 'ios' | 'firefox');
+                      }}
                       className={`w-full font-bold h-12 rounded-xl shadow-lg transition-all active:scale-95 ${
                         platform.platform === 'android' ? 'bg-green-500 hover:bg-green-600 text-white' :
                         platform.platform === 'ios' ? 'bg-slate-200 hover:bg-slate-300 text-slate-900' :

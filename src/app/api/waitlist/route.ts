@@ -8,6 +8,12 @@ interface WaitlistData {
   platform: 'android' | 'ios' | 'firefox';
 }
 
+const getAudienceId = (platform: WaitlistData["platform"]): string | undefined => {
+  if (platform === "android") return process.env.RESEND_AUDIENCE_ANDROID_ID;
+  if (platform === "ios") return process.env.RESEND_AUDIENCE_IOS_ID;
+  return process.env.RESEND_AUDIENCE_FIREFOX_ID;
+};
+
 const getWaitlistEmailTemplate = (platform: string) => `
 <!DOCTYPE html>
 <html lang="en">
@@ -253,13 +259,33 @@ export async function POST(request: NextRequest) {
     // Send welcome email
     const emailContent = getWaitlistEmailTemplate(platform);
     const platformName = platform === 'ios' ? 'iOS' : platform === 'android' ? 'Android' : 'Firefox';
-    
-    await resend.emails.send({
+
+    const emailResult = await resend.emails.send({
       from: 'info@intentionality.app',
       to: email,
       subject: `Welcome to the Intentionality ${platformName} Waitlist`,
       html: emailContent,
     });
+
+    if (emailResult.error) {
+      throw new Error(emailResult.error.message);
+    }
+
+    const audienceId = getAudienceId(platform);
+    if (audienceId) {
+      const contactResult = await resend.contacts.create({
+        email,
+        audienceId,
+        unsubscribed: false,
+      });
+
+      if (
+        contactResult.error &&
+        !contactResult.error.message.toLowerCase().includes("already exists")
+      ) {
+        throw new Error(contactResult.error.message);
+      }
+    }
 
     return NextResponse.json({
       success: true,

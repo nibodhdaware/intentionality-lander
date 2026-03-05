@@ -21,8 +21,142 @@ import Image from "next/image";
 export default function ChangelogContent() {
   const versions = [
     {
-      version: "1.6.3",
+      version: "1.6.7",
       status: "Latest",
+      date: "February 8, 2026",
+      icon: <Sparkles className="h-5 w-5 text-indigo-400" />,
+      tagColor: "bg-indigo-500",
+      summary: "Premium unlock reliability fix: extension now refreshes entitlement and no longer relies only on static allowlists.",
+      sections: [
+        {
+          title: "Features",
+          icon: <Sparkles className="h-4 w-4 text-amber-400" />,
+          items: [
+            "Added server-side premium entitlement resolver used by extension auth session + verify endpoints.",
+            "Added popup-triggered premium refresh in the Chrome extension via /api/extension-auth/verify."
+          ]
+        },
+        {
+          title: "Improvements",
+          icon: <Wrench className="h-4 w-4 text-emerald-400" />,
+          items: [
+            "Extension verify now re-evaluates premium from backend rules instead of trusting stale token claims.",
+            "Added explicit test-mode entitlement behavior for local payment flow validation."
+          ]
+        },
+        {
+          title: "Fixes",
+          icon: <Bug className="h-4 w-4 text-rose-400" />,
+          items: [
+            "Fixed issue where users could finish checkout but still see Unlock Premium in the extension popup."
+          ]
+        }
+      ]
+    },
+    {
+      version: "1.6.6",
+      status: "Previous",
+      date: "February 8, 2026",
+      icon: <Sparkles className="h-5 w-5 text-indigo-400" />,
+      tagColor: "bg-indigo-500",
+      summary: "Production payments hardening: real-only Dodo checkout and login-gated purchase flow.",
+      sections: [
+        {
+          title: "Features",
+          icon: <Sparkles className="h-4 w-4 text-amber-400" />,
+          items: [
+            "Enforced authenticated purchase flow: users must sign in before checkout.",
+            "Connected checkout route to real Dodo session creation only (no mock path)."
+          ]
+        },
+        {
+          title: "Improvements",
+          icon: <Wrench className="h-4 w-4 text-emerald-400" />,
+          items: [
+            "Updated checkout API documentation to reflect production-only payment behavior.",
+            "Refined extension connect + premium unlock sequence to direct users through login first."
+          ]
+        },
+        {
+          title: "Fixes",
+          icon: <Bug className="h-4 w-4 text-rose-400" />,
+          items: [
+            "Removed stale mock-payment test and environment dependencies."
+          ]
+        }
+      ]
+    },
+    {
+      version: "1.6.5",
+      status: "Previous",
+      date: "February 8, 2026",
+      icon: <Sparkles className="h-5 w-5 text-indigo-400" />,
+      tagColor: "bg-indigo-500",
+      summary: "Website-mediated extension authentication launch with Firebase login and secure token verification.",
+      sections: [
+        {
+          title: "Features",
+          icon: <Sparkles className="h-4 w-4 text-amber-400" />,
+          items: [
+            "Added Google and email/password login flow at /extension-auth for extension account linking.",
+            "Introduced /api/extension-auth/session endpoint to exchange Firebase identity for signed extension token.",
+            "Introduced /api/extension-auth/verify endpoint so the extension can validate auth tokens and entitlement."
+          ]
+        },
+        {
+          title: "Improvements",
+          icon: <Wrench className="h-4 w-4 text-emerald-400" />,
+          items: [
+            "Added extension callback success page for clean connection completion UX.",
+            "Added signed token helper utilities with HMAC verification and expiry enforcement."
+          ]
+        },
+        {
+          title: "Fixes",
+          icon: <Bug className="h-4 w-4 text-rose-400" />,
+          items: [
+            "Removed dependency on direct extension-to-Firebase auth by routing auth through intentionality.app APIs."
+          ]
+        }
+      ]
+    },
+    {
+      version: "1.6.4",
+      status: "Previous",
+      date: "February 8, 2026",
+      icon: <Sparkles className="h-5 w-5 text-indigo-400" />,
+      tagColor: "bg-indigo-500",
+      summary: "Premium billing launch with Dodo Payments hosted checkout integration.",
+      sections: [
+        {
+          title: "Features",
+          icon: <Sparkles className="h-4 w-4 text-amber-400" />,
+          items: [
+            "Added Premium pricing section on the home page with a single one-time $9 checkout.",
+            "Implemented new server-side /api/checkout route for secure Dodo Payments session creation.",
+            "Added checkout success page to complete the hosted payment flow."
+          ]
+        },
+        {
+          title: "Improvements",
+          icon: <Wrench className="h-4 w-4 text-emerald-400" />,
+          items: [
+            "Updated FAQ copy to clarify free core features vs Premium capabilities.",
+            "Documented checkout API contract and required environment variables."
+          ]
+        },
+        {
+          title: "Fixes",
+          icon: <Bug className="h-4 w-4 text-rose-400" />,
+          items: [
+            "Added input validation for checkout requests (plan + email) to prevent malformed payments."
+          ]
+        }
+      ]
+    },
+    {
+      version: "1.6.3",
+      status: "Previous",
       date: "February 5, 2026",
       icon: <Sparkles className="h-5 w-5 text-indigo-400" />,
       tagColor: "bg-indigo-500",

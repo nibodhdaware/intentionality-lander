@@ -29,6 +29,8 @@ jest.mock('next/navigation', () => ({
   }),
 }))
 
+jest.mock('@/components/PremiumCheckout', () => () => <div>Premium Checkout</div>)
+
 describe('Home', () => {
   beforeEach(() => {
     jest.clearAllMocks()
